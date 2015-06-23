@@ -1,0 +1,1136 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FD236BD17E6555E003FDD91 /* deprecated_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FD236BC17E6555E003FDD91 /* deprecated_main.cpp */; };
+		0FDFD9D7126C84E500B11725 /* misc_collection_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FDFD9D4126C84E500B11725 /* misc_collection_common.cc */; };
+		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
+		8DD76F6A0486A84900D96B5E /* collection.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* collection.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76F6A0486A84900D96B5E /* collection.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0F05D66317F8187D00C640C1 /* lazy4_deprecated_internal_ModifierWithFunctionClosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithFunctionClosure.h; sourceTree = "<group>"; };
+		0F05D66417F81C2800C640C1 /* lazy4_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Modifier.h; sourceTree = "<group>"; };
+		0F05D66517F81CA800C640C1 /* lazy4_deprecated_internal_ModifierBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierBridge.h; sourceTree = "<group>"; };
+		0F079CD419CA206800491C7A /* lazy4_Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Query.h; sourceTree = "<group>"; };
+		0F079D1A19CA319A00491C7A /* lazy4_deprecated_internal_CollectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionBridge.h; sourceTree = "<group>"; };
+		0F079D2519CA33B400491C7A /* lazy4_Query_std_tr1_unordered_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Query_std_tr1_unordered_map.h; sourceTree = "<group>"; };
+		0F079D3819CA37E100491C7A /* lazy4_deprecated_internal_Iterator_std_tr1_unordered_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_Iterator_std_tr1_unordered_map.h; sourceTree = "<group>"; };
+		0F0EF092191821DE00E01750 /* lazy4_deprecated_internal_ModifierWithBooleanNot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithBooleanNot.h; sourceTree = "<group>"; };
+		0F0EF0A919182CF400E01750 /* lazy4_deprecated_internal_ModifierWithContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithContent.h; sourceTree = "<group>"; };
+		0F0EF0BC19182EC900E01750 /* lazy4_deprecated_internal_ModifierWithBooleanOr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithBooleanOr.h; sourceTree = "<group>"; };
+		0F0EF0BD19182F2D00E01750 /* lazy4_deprecated_internal_ModifierWithBooleanXor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithBooleanXor.h; sourceTree = "<group>"; };
+		0F0F89261612381100EC9A5D /* lazy3_internal_IContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IContent.h; sourceTree = "<group>"; };
+		0F0F8927161239E700EC9A5D /* lazy3_internal_ContentAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ContentAbstractBridge.h; sourceTree = "<group>"; };
+		0F0F89281612440F00EC9A5D /* lazy3_internal_ContentBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ContentBridge.h; sourceTree = "<group>"; };
+		0F106D3918CE731C00E38892 /* lazy4_deprecated_internal_IteratorWithFirstDynamicCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithFirstDynamicCast.h; sourceTree = "<group>"; };
+		0F106D3A18CE73A400E38892 /* lazy4_deprecated_internal_CollectionWithFirstDynamicCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithFirstDynamicCast.h; sourceTree = "<group>"; };
+		0F149C9C17D7C5B1003AFB82 /* lazy4_deprecated_internal_IteratorWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithStaticCast.h; sourceTree = "<group>"; };
+		0F159F1716EE8B500058A4C3 /* deprecated_lazy3_internal_IEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_IEntity.h; sourceTree = "<group>"; };
+		0F159F1816EE8CF10058A4C3 /* deprecated_lazy3_internal_EntityAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityAbstractBridge.h; sourceTree = "<group>"; };
+		0F159F1916EE8D470058A4C3 /* deprecated_lazy3_internal_EntityBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityBridge.h; sourceTree = "<group>"; };
+		0F159F1A16EE8D9D0058A4C3 /* deprecated_lazy3_internal_EntityWithFilterOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityWithFilterOnFirst.h; sourceTree = "<group>"; };
+		0F159F1B16EE8DF20058A4C3 /* deprecated_lazy3_internal_EntityWithModifierOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityWithModifierOnFirst.h; sourceTree = "<group>"; };
+		0F159F1C16EE8E360058A4C3 /* lazy3_internal_EntityWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_EntityWithStaticCast.h; sourceTree = "<group>"; };
+		0F159F1D16EE8E630058A4C3 /* deprecated_lazy3_internal_EntityElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityElement.h; sourceTree = "<group>"; };
+		0F159F1E16EE8E990058A4C3 /* deprecated_lazy3_internal_EntityAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityAdapter.h; sourceTree = "<group>"; };
+		0F159F1F16EE8EB30058A4C3 /* deprecated_lazy3_internal_INode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_INode.h; sourceTree = "<group>"; };
+		0F159F3216EE91360058A4C3 /* deprecated_lazy3_internal_EntityAdapter_std_map_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_EntityAdapter_std_map_vector.h; sourceTree = "<group>"; };
+		0F1BA7EF12D7A792000A9A46 /* variety_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_Iterator.h; sourceTree = "<group>"; };
+		0F1BA81812D7B059000A9A46 /* variety_internal_InputIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_InputIteratorImplementation.h; sourceTree = "<group>"; };
+		0F1BA8CE12D7CA1E000A9A46 /* variety_internal_BasicIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BasicIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8CF12D7CA3F000A9A46 /* variety_internal_BasicContainerBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BasicContainerBridge.h; sourceTree = "<group>"; };
+		0F1BA8D012D7CA56000A9A46 /* variety_internal_InputIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_InputIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8D112D7CA6D000A9A46 /* variety_internal_ForwardIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_ForwardIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8D212D7CA7F000A9A46 /* variety_internal_BackwardIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BackwardIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8D312D7CA92000A9A46 /* variety_internal_PtrDiffIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_PtrDiffIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8D412D7CABD000A9A46 /* variety_internal_RandomIteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_RandomIteratorBridge.h; sourceTree = "<group>"; };
+		0F1BA8D512D7CADD000A9A46 /* variety_internal_IteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_IteratorInterface.h; sourceTree = "<group>"; };
+		0F1BA8D612D7CB12000A9A46 /* variety_internal_IteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_IteratorBridge.h; sourceTree = "<group>"; };
+		0F1D999317FB58A6004829EE /* lazy4_deprecated_internal_ModifierWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithStaticCast.h; sourceTree = "<group>"; };
+		0F1E3DE81478666F00255ABF /* lazy2_Accessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_Accessor.h; sourceTree = "<group>"; };
+		0F1E3DEA1478675100255ABF /* lazy2_internal_AccessorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AccessorCallback.h; sourceTree = "<group>"; };
+		0F1E3DEB1478683600255ABF /* lazy2_internal_AccessorCollectionImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AccessorCollectionImplementation.h; sourceTree = "<group>"; };
+		0F1E3E09147AE3FA00255ABF /* lazy2_internal_FlattenCollectionImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_FlattenCollectionImplementation.h; sourceTree = "<group>"; };
+		0F1E3E0A147AE60300255ABF /* lazy2_internal_FlattenIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_FlattenIteratorImplementation.h; sourceTree = "<group>"; };
+		0F20BDCC12DA0F3300354156 /* variety_internal_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_Bridge.h; sourceTree = "<group>"; };
+		0F20C15412ECB42300354156 /* variety_Accessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_Accessor.h; sourceTree = "<group>"; };
+		0F22A26A1613955F004F553B /* lazy3_Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Predicate.h; sourceTree = "<group>"; };
+		0F22A27E1613A5BB004F553B /* lazy3_Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Counter.h; sourceTree = "<group>"; };
+		0F22A27F1613A70F004F553B /* lazy3_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Iterator.h; sourceTree = "<group>"; };
+		0F22C4F216D95DAA008A39BE /* lazy3_internal_IteratorWithModifierOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorWithModifierOnFirst.h; sourceTree = "<group>"; };
+		0F22C4F316D95E14008A39BE /* lazy3_internal_IteratorWithFilterOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorWithFilterOnFirst.h; sourceTree = "<group>"; };
+		0F22C4F416D95E43008A39BE /* lazy3_internal_IteratorWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorWithStaticCast.h; sourceTree = "<group>"; };
+		0F235659165979BE00A90C3C /* lazy3_internal_AccessorElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_AccessorElement.h; sourceTree = "<group>"; };
+		0F23565A16597CE900A90C3C /* lazy3_internal_AccessorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_AccessorAdapter.h; sourceTree = "<group>"; };
+		0F2559D015A8D6D800671AE0 /* deprecated_lazy3_specialization_Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_specialization_Flow.h; sourceTree = "<group>"; };
+		0F2559EC15A8E0B800671AE0 /* lazy3_internal_Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_Value.h; sourceTree = "<group>"; };
+		0F29E8CA12AC24710085856F /* variety_ICollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_ICollection.h; sourceTree = "<group>"; };
+		0F29E8CB12AC27E70085856F /* variety_Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_Generic.h; sourceTree = "<group>"; };
+		0F29E8CE12AC295F0085856F /* variety_IUnknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_IUnknown.h; sourceTree = "<group>"; };
+		0F29E8D212AC2FD40085856F /* variety_internal_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_Implementation.h; sourceTree = "<group>"; };
+		0F29E8D612AC31700085856F /* variety_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_IList.h; sourceTree = "<group>"; };
+		0F29E8D712AC33750085856F /* variety_List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_List.h; sourceTree = "<group>"; };
+		0F29E96012AC4E3D0085856F /* variety_internal_GenericTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_GenericTraits.h; sourceTree = "<group>"; };
+		0F29E97612AEE0390085856F /* variety_internal_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_IList.h; sourceTree = "<group>"; };
+		0F29E97E12AEE2010085856F /* variety_internal_ICollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_ICollection.h; sourceTree = "<group>"; };
+		0F29EA1412B2CC140085856F /* variety_ITransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_ITransform.h; sourceTree = "<group>"; };
+		0F29EA1612B2CC6B0085856F /* variety_IPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_IPredicate.h; sourceTree = "<group>"; };
+		0F2AED7219B503880054E63F /* lazy4_internal_InheritanceStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_InheritanceStorage.h; sourceTree = "<group>"; };
+		0F2AED7319B5048F0054E63F /* lazy4_internal_IInheritanceStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IInheritanceStorage.h; sourceTree = "<group>"; };
+		0F2D3C3E19D72DBF0039B3EC /* lazy4_internal_Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Flow.h; sourceTree = "<group>"; };
+		0F2D3C4C19D7308B0039B3EC /* lazy4_internal_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Iterator.h; sourceTree = "<group>"; };
+		0F2D3C4D19D733C00039B3EC /* lazy4_internal_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Collection.h; sourceTree = "<group>"; };
+		0F2D3C6A19D7420A0039B3EC /* lazy4_internal_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Modifier.h; sourceTree = "<group>"; };
+		0F2D3C6D19D744100039B3EC /* lazy4_internal_Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Pair.h; sourceTree = "<group>"; };
+		0F2D3D4719D75E510039B3EC /* lazy4_Query_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Query_std_vector.h; sourceTree = "<group>"; };
+		0F2D3D4819D75E630039B3EC /* lazy4_Query_std_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Query_std_map.h; sourceTree = "<group>"; };
+		0F2E452614F2F8B60015E372 /* lazy2_internal_AssociateCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AssociateCollection.h; sourceTree = "<group>"; };
+		0F2E453114F2FC190015E372 /* lazy2_internal_FlattenCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_FlattenCollection.h; sourceTree = "<group>"; };
+		0F2E454914F304000015E372 /* lazy2_internal_ContainerCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_ContainerCollection.h; sourceTree = "<group>"; };
+		0F3020CD160FAA5E00454889 /* lazy3_internal_FlowAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowAbstractBridge.h; sourceTree = "<group>"; };
+		0F3020CE160FAB8800454889 /* lazy3_internal_GenericAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_GenericAbstractBridge.h; sourceTree = "<group>"; };
+		0F3020E5160FB05900454889 /* lazy3_internal_CollectionAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_CollectionAbstractBridge.h; sourceTree = "<group>"; };
+		0F3020E8160FB68100454889 /* lazy3_internal_ModifierAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ModifierAbstractBridge.h; sourceTree = "<group>"; };
+		0F3020E9160FB75300454889 /* lazy3_internal_ModifierBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ModifierBridge.h; sourceTree = "<group>"; };
+		0F3020EA160FB7DD00454889 /* lazy3_Accessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Accessor.h; sourceTree = "<group>"; };
+		0F340C1E14F839BE0028E01C /* lazy2_internal_ConstructorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_ConstructorCollection.h; sourceTree = "<group>"; };
+		0F3D3DC717ECDA3B00ED7155 /* lazy4_deprecated_internal_IteratorWithFirstAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithFirstAccessor.h; sourceTree = "<group>"; };
+		0F3D3DCB17ECE25B00ED7155 /* lazy4_deprecated_internal_ModifierWithModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithModifier.h; sourceTree = "<group>"; };
+		0F3D3DD717EF01CF00ED7155 /* lazy4_deprecated_internal_IModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IModifier.h; sourceTree = "<group>"; };
+		0F3D3DDA17EF040000ED7155 /* lazy4_deprecated_internal_InputUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_InputUtility.h; sourceTree = "<group>"; };
+		0F3D3DDB17EF06E200ED7155 /* lazy4_deprecated_internal_OutputUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_OutputUtility.h; sourceTree = "<group>"; };
+		0F462566128C7ECC00E60AD1 /* variety_const_reference_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_reference_implementation.h; sourceTree = "<group>"; };
+		0F462567128C978C00E60AD1 /* variety_mutable_reference_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_reference_implementation.h; sourceTree = "<group>"; };
+		0F462568128C981500E60AD1 /* variety_mutable_instance_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_instance_implementation.h; sourceTree = "<group>"; };
+		0F462569128C986900E60AD1 /* variety_const_instance_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_instance_implementation.h; sourceTree = "<group>"; };
+		0F462576128C9A7100E60AD1 /* variety_iterator2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterator2.h; sourceTree = "<group>"; };
+		0F462577128C9AB800E60AD1 /* variety_output_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_output_iterator.h; sourceTree = "<group>"; };
+		0F462579128C9B6300E60AD1 /* variety_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_collection.h; sourceTree = "<group>"; };
+		0F462584128C9E7000E60AD1 /* variety_input_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_input_bridge.h; sourceTree = "<group>"; };
+		0F462585128C9E8300E60AD1 /* variety_backward_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_backward_bridge.h; sourceTree = "<group>"; };
+		0F4625E4128EDEA200E60AD1 /* variety_concatenation_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_concatenation_implementation.h; sourceTree = "<group>"; };
+		0F462626128F11A700E60AD1 /* variety_collection_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_collection_implementation.h; sourceTree = "<group>"; };
+		0F462627128F148400E60AD1 /* variety_collection_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_collection_interface.h; sourceTree = "<group>"; };
+		0F462629128F15D600E60AD1 /* variety_collection_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_collection_bridge.h; sourceTree = "<group>"; };
+		0F46262A128F169F00E60AD1 /* variety_iterator_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterator_interface.h; sourceTree = "<group>"; };
+		0F46262B128F16B500E60AD1 /* variety_iterator_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterator_bridge.h; sourceTree = "<group>"; };
+		0F46262D128F18B600E60AD1 /* variety_iterator_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterator_implementation.h; sourceTree = "<group>"; };
+		0F46266D1290488600E60AD1 /* variety_empty_collection_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_empty_collection_implementation.h; sourceTree = "<group>"; };
+		0F4626D812906B9F00E60AD1 /* variety_empty_iterator_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_empty_iterator_implementation.h; sourceTree = "<group>"; };
+		0F4B22481614D76B008EC1A7 /* lazy3_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Modifier.h; sourceTree = "<group>"; };
+		0F4B22A01614EA3A008EC1A7 /* lazy3_internal_IPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IPair.h; sourceTree = "<group>"; };
+		0F4B22A11614EB44008EC1A7 /* lazy3_internal_IAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IAccessor.h; sourceTree = "<group>"; };
+		0F4B22A41614EBE0008EC1A7 /* lazy3_internal_PairAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_PairAbstractBridge.h; sourceTree = "<group>"; };
+		0F4B22A51614ED12008EC1A7 /* lazy3_internal_AccessorAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_AccessorAbstractBridge.h; sourceTree = "<group>"; };
+		0F4B22A61614EDF9008EC1A7 /* lazy3_internal_AccessorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_AccessorBridge.h; sourceTree = "<group>"; };
+		0F4B22A71614EE66008EC1A7 /* lazy3_internal_PairBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_PairBridge.h; sourceTree = "<group>"; };
+		0F4D5A75181024FB003DCD0B /* lazy4_deprecated_internal_CollectionWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithStaticCast.h; sourceTree = "<group>"; };
+		0F4D5A761810276E003DCD0B /* lazy4_deprecated_internal_CollectionWithFirstAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithFirstAccessor.h; sourceTree = "<group>"; };
+		0F4D5A7718102842003DCD0B /* lazy4_deprecated_internal_CollectionWithFirstFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithFirstFilter.h; sourceTree = "<group>"; };
+		0F5033B812705DB30059C34F /* iterator_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterator_driver.h; sourceTree = "<group>"; };
+		0F5033BC12705E510059C34F /* set_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = set_wrapper.h; sourceTree = "<group>"; };
+		0F5033BD12705E750059C34F /* vector_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector_wrapper.h; sourceTree = "<group>"; };
+		0F5033BE12705F8E0059C34F /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterator.h; sourceTree = "<group>"; };
+		0F5033BF12705F9A0059C34F /* collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collection.h; sourceTree = "<group>"; };
+		0F5033C2127064D80059C34F /* container_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = container_wrapper.h; sourceTree = "<group>"; };
+		0F5033C3127064E60059C34F /* iterator_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterator_wrapper.h; sourceTree = "<group>"; };
+		0F5033C6127065C00059C34F /* collection_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collection_driver.h; sourceTree = "<group>"; };
+		0F514927180FD61700A9BCBF /* lazy4_deprecated_internal_ICollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ICollection.h; sourceTree = "<group>"; };
+		0F51493D180FDDD700A9BCBF /* lazy4_deprecated_internal_CollectionWithContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithContent.h; sourceTree = "<group>"; };
+		0F514940180FDF6700A9BCBF /* lazy4_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Collection.h; sourceTree = "<group>"; };
+		0F51494B180FE10200A9BCBF /* lazy4_Collection_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Collection_std_vector.h; sourceTree = "<group>"; };
+		0F5D50EE191FBF6800920AB0 /* lazy4_internal_CollectorStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_CollectorStorage.h; sourceTree = "<group>"; };
+		0F5D50EF191FC0CE00920AB0 /* lazy4_internal_SingleStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_SingleStorage.h; sourceTree = "<group>"; };
+		0F5D50F0191FC28E00920AB0 /* lazy4_internal_IStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IStorage.h; sourceTree = "<group>"; };
+		0F5D50F1191FCA8500920AB0 /* lazy4_internal_ITemplateStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_ITemplateStorage.h; sourceTree = "<group>"; };
+		0F5D50F3191FD45500920AB0 /* lazy4_internal_KeyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_KeyStorage.h; sourceTree = "<group>"; };
+		0F5D50F4191FD80D00920AB0 /* lazy4_internal_SharedStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_SharedStorage.h; sourceTree = "<group>"; };
+		0F5D50F5191FFDFA00920AB0 /* lazy4_internal_IAssociativeStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IAssociativeStorage.h; sourceTree = "<group>"; };
+		0F5D50F61920068900920AB0 /* lazy4_internal_ISharedStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_ISharedStorage.h; sourceTree = "<group>"; };
+		0F602AB312C793A6000CC30C /* variety_IIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_IIterator.h; sourceTree = "<group>"; };
+		0F602AB912C799C8000CC30C /* variety_internal_AdapterIterator_gnu_cxx_normal_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_gnu_cxx_normal_iterator.h; sourceTree = "<group>"; };
+		0F602ABB12C79E3B000CC30C /* variety_internal_AdapterIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator.h; sourceTree = "<group>"; };
+		0F602ABD12C7A326000CC30C /* variety_internal_AdapterIterator_std_Rb_tree_const_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_Rb_tree_const_iterator.h; sourceTree = "<group>"; };
+		0F602AC612C7AE22000CC30C /* variety_internal_AdapterIterator_std_List_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_List_iterator.h; sourceTree = "<group>"; };
+		0F602AC712C7AEB8000CC30C /* variety_internal_AdapterIterator_std_List_const_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_List_const_iterator.h; sourceTree = "<group>"; };
+		0F602AC812C7AF33000CC30C /* variety_internal_AdapterIterator_std_Rb_tree_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_Rb_tree_iterator.h; sourceTree = "<group>"; };
+		0F602AC912C7B206000CC30C /* variety_internal_AdapterIterator_std_Bit_const_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_Bit_const_iterator.h; sourceTree = "<group>"; };
+		0F602ACA12C7B3AE000CC30C /* variety_internal_AdapterIterator_std_Bit_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_Bit_iterator.h; sourceTree = "<group>"; };
+		0F602ACB12C7B458000CC30C /* variety_internal_AdapterIterator_std_Deque_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIterator_std_Deque_iterator.h; sourceTree = "<group>"; };
+		0F602ACE12C7B83E000CC30C /* variety_internal_BasicIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BasicIteratorInterface.h; sourceTree = "<group>"; };
+		0F602AD912C7BD22000CC30C /* variety_internal_ForwardIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_ForwardIteratorInterface.h; sourceTree = "<group>"; };
+		0F602ADA12C7BF9F000CC30C /* variety_internal_BackwardIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BackwardIteratorInterface.h; sourceTree = "<group>"; };
+		0F602ADB12C7BFCF000CC30C /* variety_internal_PtrDiffIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_PtrDiffIteratorInterface.h; sourceTree = "<group>"; };
+		0F602B4612C7CB45000CC30C /* variety_RandomIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_RandomIterator.h; sourceTree = "<group>"; };
+		0F602B5A12C7E7F6000CC30C /* variety_generic_traits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_generic_traits.h; sourceTree = "<group>"; };
+		0F602B7212C7FA57000CC30C /* variety_IteratorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_IteratorFactory.h; sourceTree = "<group>"; };
+		0F602B7512C7FDE0000CC30C /* variety_internal_AdapterIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIteratorImplementation.h; sourceTree = "<group>"; };
+		0F602C9F12C8FF2F000CC30C /* variety_internal_InputIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_InputIteratorInterface.h; sourceTree = "<group>"; };
+		0F602CA012C9013D000CC30C /* variety_internal_RandomIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_RandomIteratorInterface.h; sourceTree = "<group>"; };
+		0F602CF812C93665000CC30C /* variety_internal_AdapterContainerImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterContainerImplementation.h; sourceTree = "<group>"; };
+		0F602CF912C939F5000CC30C /* variety_internal_AdapterIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterIteratorInterface.h; sourceTree = "<group>"; };
+		0F602CFA12C93F99000CC30C /* variety_internal_AdapterContainerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterContainerInterface.h; sourceTree = "<group>"; };
+		0F602CFB12C94031000CC30C /* variety_internal_AdapterContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterContainer.h; sourceTree = "<group>"; };
+		0F602D3412C94C0A000CC30C /* variety_internal_AdapterContainer_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AdapterContainer_std_vector.h; sourceTree = "<group>"; };
+		0F602D3B12C94F0D000CC30C /* variety_internal_BasicContainerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_BasicContainerInterface.h; sourceTree = "<group>"; };
+		0F63833519CB6199005C4747 /* lazy4_internal_Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Query.h; sourceTree = "<group>"; };
+		0F639F4E16067B8C0073EC3C /* lazy3_internal_ICollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ICollection.h; sourceTree = "<group>"; };
+		0F65732516A4AA5400AB02F0 /* lazy3_internal_FlowWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowWithStaticCast.h; sourceTree = "<group>"; };
+		0F6671E514CA201F007EDDB6 /* lazy2_internal_CollectionImplementation_std_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionImplementation_std_pair.h; sourceTree = "<group>"; };
+		0F6671E614CA21E6007EDDB6 /* lazy2_internal_IteratorImplementation_std_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorImplementation_std_pair.h; sourceTree = "<group>"; };
+		0F6D1169162211B600624B58 /* lazy3_internal_ModifierWithLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ModifierWithLink.h; sourceTree = "<group>"; };
+		0F6D11981622237900624B58 /* lazy3_internal_FlowElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowElement.h; sourceTree = "<group>"; };
+		0F6D11A516222B4D00624B58 /* lazy3_internal_FlowAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowAdapter.h; sourceTree = "<group>"; };
+		0F6D11A716222D6B00624B58 /* deprecated_lazy3_internal_IAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy3_internal_IAdapter.h; sourceTree = "<group>"; };
+		0F6D11A816222E2900624B58 /* lazy3_internal_FlowAdapter_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowAdapter_std_vector.h; sourceTree = "<group>"; };
+		0F6D11AB16222E7400624B58 /* lazy3_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_std_vector.h; sourceTree = "<group>"; };
+		0F6D7A8F135B1954007ABD9D /* variety_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_Modifier.h; sourceTree = "<group>"; };
+		0F712EA81534C4DF002772E9 /* lazy2_internal_ConcatenateCollectionImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_ConcatenateCollectionImplementation.h; sourceTree = "<group>"; };
+		0F712EAB1534CE1F002772E9 /* lazy2_internal_ConcatenateIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_ConcatenateIteratorImplementation.h; sourceTree = "<group>"; };
+		0F7AA2AB14858823000CEF57 /* lazy2_internal_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_Interface.h; sourceTree = "<group>"; };
+		0F7B4B46188334710049B73E /* lazy4_deprecated_internal_CollectionWithPermutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithPermutation.h; sourceTree = "<group>"; };
+		0F7B4B47188335160049B73E /* lazy4_deprecated_internal_IteratorWithPermutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithPermutation.h; sourceTree = "<group>"; };
+		0F7B4B5A188339610049B73E /* lazy4_deprecated_internal_IteratorWithBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithBounds.h; sourceTree = "<group>"; };
+		0F7B4B5B18833CE70049B73E /* lazy4_deprecated_internal_CollectionWithBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithBounds.h; sourceTree = "<group>"; };
+		0F7DFA8C139D736F0061F17A /* lazy_internal_IteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IteratorBridge.h; sourceTree = "<group>"; };
+		0F7DFA8D139D73EC0061F17A /* lazy_internal_ModifierImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_ModifierImplementation.h; sourceTree = "<group>"; };
+		0F81230012F8B68300A32C39 /* variety_internal_MethodAccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_MethodAccessorImplementation.h; sourceTree = "<group>"; };
+		0F81230212F8BBE200A32C39 /* variety_internal_InputAccessorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_InputAccessorInterface.h; sourceTree = "<group>"; };
+		0F8123841301E87F00A32C39 /* variety_internal_AccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AccessorImplementation.h; sourceTree = "<group>"; };
+		0F8123881301F24100A32C39 /* variety_internal_AccessorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AccessorInterface.h; sourceTree = "<group>"; };
+		0F8123891301F25A00A32C39 /* variety_internal_AccessorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_AccessorBridge.h; sourceTree = "<group>"; };
+		0F81238A1301F33100A32C39 /* variety_internal_InputAccessorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_InputAccessorBridge.h; sourceTree = "<group>"; };
+		0F8123D6130FAEC400A32C39 /* variety_internal_FunctionAccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_FunctionAccessorImplementation.h; sourceTree = "<group>"; };
+		0F8123E5130FC7DA00A32C39 /* variety_internal_SetDatumAccessorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_SetDatumAccessorInterface.h; sourceTree = "<group>"; };
+		0F8123E6130FC91500A32C39 /* variety_internal_SetDatumAccessorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_SetDatumAccessorBridge.h; sourceTree = "<group>"; };
+		0F8123EB1311998000A32C39 /* variety_internal_DatumAccessorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_DatumAccessorBridge.h; sourceTree = "<group>"; };
+		0F8123EC13119A9F00A32C39 /* variety_internal_DatumAccessorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_DatumAccessorInterface.h; sourceTree = "<group>"; };
+		0F8123FD1315BB8600A32C39 /* variety_internal_FunctionDatumAccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_FunctionDatumAccessorImplementation.h; sourceTree = "<group>"; };
+		0F8123FE1315BBD200A32C39 /* variety_internal_MethodDatumAccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_MethodDatumAccessorImplementation.h; sourceTree = "<group>"; };
+		0F856EF516348BC400079D15 /* lazy3_internal_ContentElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_ContentElement.h; sourceTree = "<group>"; };
+		0F8A69A81444F24B002541F4 /* lazy2_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_Collection.h; sourceTree = "<group>"; };
+		0F8A69AA1444F2D3002541F4 /* lazy2_Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_Generic.h; sourceTree = "<group>"; };
+		0F8A69C11444F52B002541F4 /* lazy2_internal_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_Bridge.h; sourceTree = "<group>"; };
+		0F951FD1139C226800336716 /* lazy_internal_CollectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_CollectionBridge.h; sourceTree = "<group>"; };
+		0F952006139C2A2B00336716 /* lazy_internal_ICollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_ICollection.h; sourceTree = "<group>"; };
+		0F95200B139C2AF100336716 /* lazy_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_Iterator.h; sourceTree = "<group>"; };
+		0F95200C139C2B1B00336716 /* lazy_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_Modifier.h; sourceTree = "<group>"; };
+		0F952011139C2C2000336716 /* lazy_internal_IIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IIterator.h; sourceTree = "<group>"; };
+		0F952012139C2C4200336716 /* _deprecated_lazy_internal_ModifierInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _deprecated_lazy_internal_ModifierInterface.h; sourceTree = "<group>"; };
+		0F9C398E14CF5F100040424B /* deprecated_lazy2_internal_EmptyCollectionImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_EmptyCollectionImplementation.h; sourceTree = "<group>"; };
+		0F9C398F14CF61580040424B /* deprecated_lazy2_internal_EmptyIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_EmptyIteratorImplementation.h; sourceTree = "<group>"; };
+		0F9C39A714D1E7310040424B /* lazy2_internal_CollectionImplementation_std_vector_std_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionImplementation_std_vector_std_pair.h; sourceTree = "<group>"; };
+		0F9C39A814D1E84F0040424B /* lazy2_internal_IteratorImplementation_std_vector_std_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorImplementation_std_vector_std_pair.h; sourceTree = "<group>"; };
+		0F9C3A2814D20AA60040424B /* lazy2_internal_InheritIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_InheritIterator.h; sourceTree = "<group>"; };
+		0F9C3A3914D466550040424B /* deprecated_lazy2_internal_ContainerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_ContainerInterface.h; sourceTree = "<group>"; };
+		0F9C3A3A14D4666C0040424B /* deprecated_lazy2_internal_ContainerCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_ContainerCallback.h; sourceTree = "<group>"; };
+		0F9C3AB514D55AB10040424B /* lazy2_internal_PublishedBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_PublishedBridge.h; sourceTree = "<group>"; };
+		0F9E69B01471B98200232EAC /* lazy2_internal_IteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorImplementation.h; sourceTree = "<group>"; };
+		0F9E6B68147474B300232EAC /* lazy2_internal_CollectionImplementation_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionImplementation_std_vector.h; sourceTree = "<group>"; };
+		0F9E6B9E1475BDD400232EAC /* lazy2_internal_IteratorImplementation_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorImplementation_std_vector.h; sourceTree = "<group>"; };
+		0F9E6C0C1477062600232EAC /* lazy2_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_std_vector.h; sourceTree = "<group>"; };
+		0FA0D94818245D9A007B791A /* lazy4_deprecated_internal_IteratorWithFirstUnique.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithFirstUnique.h; sourceTree = "<group>"; };
+		0FA0D94B1824661C007B791A /* lazy4_deprecated_internal_IteratorWithReverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithReverse.h; sourceTree = "<group>"; };
+		0FA0D94C18246645007B791A /* lazy4_deprecated_internal_CollectionWithFirstUnique.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithFirstUnique.h; sourceTree = "<group>"; };
+		0FA6A98116D9610E00F3646F /* lazy3_internal_IteratorElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorElement.h; sourceTree = "<group>"; };
+		0FAAD9A4199EA93300373AE0 /* lazy4_internal_ChainStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_ChainStorage.h; sourceTree = "<group>"; };
+		0FAB098913186042000573B0 /* variety_internal_DualBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_DualBridge.h; sourceTree = "<group>"; };
+		0FAB098A1318644E000573B0 /* variety_internal_SharedImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_SharedImplementation.h; sourceTree = "<group>"; };
+		0FB1CFBE17D3C4C5003D30A3 /* lazy4_deprecated_internal_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_Type.h; sourceTree = "<group>"; };
+		0FB1CFBF17D3C5FF003D30A3 /* lazy4_deprecated_internal_IteratorWithContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithContent.h; sourceTree = "<group>"; };
+		0FB1CFC017D3C692003D30A3 /* lazy4_Iterator_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Iterator_std_vector.h; sourceTree = "<group>"; };
+		0FB1CFC217D3C95E003D30A3 /* lazy4_deprecated_internal_IFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IFirst.h; sourceTree = "<group>"; };
+		0FB1CFC317D3CAE2003D30A3 /* lazy4_deprecated_internal_IForward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IForward.h; sourceTree = "<group>"; };
+		0FB1CFC417D3CB92003D30A3 /* lazy4_deprecated_internal_IContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IContent.h; sourceTree = "<group>"; };
+		0FB1CFC717D3CD47003D30A3 /* lazy4_internal_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_Content.h; sourceTree = "<group>"; };
+		0FB1CFCA17D3D8CB003D30A3 /* lazy4_deprecated_internal_ISecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ISecond.h; sourceTree = "<group>"; };
+		0FB1CFCB17D3D959003D30A3 /* lazy4_deprecated_internal_IIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IIterator.h; sourceTree = "<group>"; };
+		0FB1CFCF17D3DA93003D30A3 /* lazy4_deprecated_internal_IBackward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IBackward.h; sourceTree = "<group>"; };
+		0FB1D01B17D3E0F2003D30A3 /* lazy4_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Iterator.h; sourceTree = "<group>"; };
+		0FB1D01C17D3E21C003D30A3 /* lazy4_deprecated_internal_IteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorBridge.h; sourceTree = "<group>"; };
+		0FB1D01D17D3E4FC003D30A3 /* lazy4_deprecated_internal_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_Bridge.h; sourceTree = "<group>"; };
+		0FB1D02017D3E710003D30A3 /* lazy4_deprecated_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_std_vector.h; sourceTree = "<group>"; };
+		0FC2A80C1466C07C0034C5E9 /* lazy2_internal_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_Implementation.h; sourceTree = "<group>"; };
+		0FC2A8121466C2E70034C5E9 /* lazy2_internal_InstanceImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_InstanceImplementation.h; sourceTree = "<group>"; };
+		0FC2A8131466C5BB0034C5E9 /* lazy2_internal_ValueTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_ValueTraits.h; sourceTree = "<group>"; };
+		0FC2A8141466C6030034C5E9 /* lazy2_internal_CollectionImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionImplementation.h; sourceTree = "<group>"; };
+		0FC2A85614673D3B0034C5E9 /* lazy2_internal_IteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorInterface.h; sourceTree = "<group>"; };
+		0FC2A8B8146746D50034C5E9 /* lazy2_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_Iterator.h; sourceTree = "<group>"; };
+		0FC2A8E21469D3F10034C5E9 /* lazy2_internal_CollectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionInterface.h; sourceTree = "<group>"; };
+		0FC2A8E3146B297A0034C5E9 /* lazy2_internal_TypedBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_TypedBridge.h; sourceTree = "<group>"; };
+		0FC2A8E4146B2B1F0034C5E9 /* lazy2_internal_CollectionCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_CollectionCallback.h; sourceTree = "<group>"; };
+		0FC2A8E5146B2C900034C5E9 /* lazy2_internal_Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_Callback.h; sourceTree = "<group>"; };
+		0FC2A8E6146B308C0034C5E9 /* lazy2_internal_IteratorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_IteratorCallback.h; sourceTree = "<group>"; };
+		0FC2A8E7146B313F0034C5E9 /* lazy2_internal_InstanceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_InstanceInterface.h; sourceTree = "<group>"; };
+		0FC2A8E8146B31C30034C5E9 /* lazy2_internal_InstanceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_InstanceCallback.h; sourceTree = "<group>"; };
+		0FC84ED11801F2E300CF9283 /* lazy4_deprecated_internal_ModifierWithNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithNew.h; sourceTree = "<group>"; };
+		0FC84F26180209F400CF9283 /* lazy4_deprecated_internal_IteratorWithFirstFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithFirstFilter.h; sourceTree = "<group>"; };
+		0FC989E516138B1C00E234D0 /* lazy3_internal_FlowWithFilterOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowWithFilterOnFirst.h; sourceTree = "<group>"; };
+		0FC9D1D915B8A053002AD497 /* lazy3_internal_IModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IModifier.h; sourceTree = "<group>"; };
+		0FC9D1DC15B8A3C4002AD497 /* lazy3_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Collection.h; sourceTree = "<group>"; };
+		0FC9D1DD15B8A48C002AD497 /* lazy3_internal_CollectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_CollectionBridge.h; sourceTree = "<group>"; };
+		0FC9D1E615B8A6B1002AD497 /* lazy3_internal_FlowWithModifierOnFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowWithModifierOnFirst.h; sourceTree = "<group>"; };
+		0FCB96811935299200D0AB49 /* lazy4_Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Flow.h; sourceTree = "<group>"; };
+		0FCB968819352E7300D0AB49 /* lazy4_deprecated_internal_DynamicCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_DynamicCast.h; sourceTree = "<group>"; };
+		0FCB9693193530D100D0AB49 /* lazy4_Flow_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Flow_std_vector.h; sourceTree = "<group>"; };
+		0FCB96941935312300D0AB49 /* lazy4_Flow_std_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Flow_std_map.h; sourceTree = "<group>"; };
+		0FCDB1CF136C8AF9001C6099 /* lazy_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_Collection.h; sourceTree = "<group>"; };
+		0FCDB1D0136C8B0C001C6099 /* lazy_Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_Generic.h; sourceTree = "<group>"; };
+		0FCDB1D3136C8CAC001C6099 /* _deprecated_lazy_internal_SharedImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _deprecated_lazy_internal_SharedImplementation.h; sourceTree = "<group>"; };
+		0FCDB1D6136C8D67001C6099 /* lazy_internal_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Bridge.h; sourceTree = "<group>"; };
+		0FCDB1D7136C8D7A001C6099 /* lazy_internal_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Implementation.h; sourceTree = "<group>"; };
+		0FCDB1DA136C900F001C6099 /* lazy_internal_ContainerImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_ContainerImplementation.h; sourceTree = "<group>"; };
+		0FCDB1DC136DDA1D001C6099 /* lazy_internal_ValueTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_ValueTraits.h; sourceTree = "<group>"; };
+		0FCDB1DD1379CB7C001C6099 /* lazy_internal_ContainerImplementation_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_ContainerImplementation_std_vector.h; sourceTree = "<group>"; };
+		0FCDB1DE1379D07B001C6099 /* lazy_internal_IteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IteratorImplementation.h; sourceTree = "<group>"; };
+		0FCDB1DF1379E12A001C6099 /* lazy_internal_IteratorImplementation_gnu_cxx_normal_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IteratorImplementation_gnu_cxx_normal_iterator.h; sourceTree = "<group>"; };
+		0FCE07B11492B76400AF15AA /* lazy2_internal_AccessorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AccessorInterface.h; sourceTree = "<group>"; };
+		0FCE07C31492BFD400AF15AA /* lazy2_internal_AccessorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AccessorImplementation.h; sourceTree = "<group>"; };
+		0FCE07C61492C6A000AF15AA /* lazy2_internal_AccessorIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AccessorIteratorImplementation.h; sourceTree = "<group>"; };
+		0FCE07C914936DE700AF15AA /* lazy2_internal_AssociateCollectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AssociateCollectionInterface.h; sourceTree = "<group>"; };
+		0FCE07CC149374DF00AF15AA /* lazy2_internal_AssociateCollectionCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AssociateCollectionCallback.h; sourceTree = "<group>"; };
+		0FCE08041495643600AF15AA /* lazy2_internal_AssociateIteratorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AssociateIteratorInterface.h; sourceTree = "<group>"; };
+		0FCE0805149564CE00AF15AA /* lazy2_internal_AssociateIteratorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_AssociateIteratorCallback.h; sourceTree = "<group>"; };
+		0FCFB30D18B2B1A4004B40E9 /* lazy4_deprecated_internal_IFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IFlow.h; sourceTree = "<group>"; };
+		0FCFB31F18B2B637004B40E9 /* lazy4_deprecated_internal_PairUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairUtility.h; sourceTree = "<group>"; };
+		0FCFB34618B2C64E004B40E9 /* lazy4_deprecated_internal_PairWithStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairWithStaticCast.h; sourceTree = "<group>"; };
+		0FCFB34D18B2C86F004B40E9 /* lazy4_deprecated_internal_PairWithFirstAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairWithFirstAccessor.h; sourceTree = "<group>"; };
+		0FCFB35818B2C996004B40E9 /* lazy4_deprecated_internal_PairWithPermutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairWithPermutation.h; sourceTree = "<group>"; };
+		0FD061E417F0EB7B0018655C /* lazy4_deprecated_internal_IClosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IClosure.h; sourceTree = "<group>"; };
+		0FD061E517F0EBC70018655C /* lazy4_deprecated_internal_ClosureUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ClosureUtility.h; sourceTree = "<group>"; };
+		0FD236BB17E6555E003FDD91 /* deprecated_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_main.h; sourceTree = "<group>"; };
+		0FD236BC17E6555E003FDD91 /* deprecated_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = deprecated_main.cpp; sourceTree = "<group>"; };
+		0FD26C1118CE5CDF00FD9905 /* lazy4_deprecated_internal_ModifierWithIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithIterator.h; sourceTree = "<group>"; };
+		0FD52C6217FCC32C0029C4CD /* lazy4_deprecated_internal_ModifierWithFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithFunction.h; sourceTree = "<group>"; };
+		0FD57FAA17D90AAE0054E05C /* lazy4_deprecated_internal_ContentUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ContentUtility.h; sourceTree = "<group>"; };
+		0FDB4A981933D625004621EB /* lazy4_deprecated_internal_CollectionWithSecondAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithSecondAccessor.h; sourceTree = "<group>"; };
+		0FDB4A991933D654004621EB /* lazy4_deprecated_internal_IteratorWithSecondAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithSecondAccessor.h; sourceTree = "<group>"; };
+		0FDB4AD01933E3C1004621EB /* lazy4_deprecated_std_tr1_unordered_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_std_tr1_unordered_map.h; sourceTree = "<group>"; };
+		0FDB4AD21933E435004621EB /* lazy4_Flow_std_tr1_unordered_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Flow_std_tr1_unordered_map.h; sourceTree = "<group>"; };
+		0FDB4AF91933EF86004621EB /* lazy4_deprecated_internal_FlowBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowBridge.h; sourceTree = "<group>"; };
+		0FDB4AFA1933F0B9004621EB /* lazy4_deprecated_internal_FlowWithContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithContent.h; sourceTree = "<group>"; };
+		0FDB4AFB1933F0E8004621EB /* lazy4_deprecated_internal_FlowWithPermutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithPermutation.h; sourceTree = "<group>"; };
+		0FDB4AFC1933F11C004621EB /* lazy4_deprecated_internal_FlowWithBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithBounds.h; sourceTree = "<group>"; };
+		0FDB4AFD1933F147004621EB /* lazy4_deprecated_internal_FlowWithFirstStaticCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstStaticCast.h; sourceTree = "<group>"; };
+		0FDB4AFE1933F16C004621EB /* lazy4_deprecated_internal_FlowWithFirstDynamicCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstDynamicCast.h; sourceTree = "<group>"; };
+		0FDB4AFF1933F19D004621EB /* lazy4_deprecated_internal_FlowWithFirstAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstAccessor.h; sourceTree = "<group>"; };
+		0FDB4B001933F1D3004621EB /* lazy4_deprecated_internal_FlowWithSecondAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithSecondAccessor.h; sourceTree = "<group>"; };
+		0FDB4B011933F201004621EB /* lazy4_deprecated_internal_FlowWithFirstFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstFilter.h; sourceTree = "<group>"; };
+		0FDB4B021933F228004621EB /* lazy4_deprecated_internal_FlowWithFirstUnique.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstUnique.h; sourceTree = "<group>"; };
+		0FDB4B051933F277004621EB /* lazy4_deprecated_internal_FlowWithConcatenation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithConcatenation.h; sourceTree = "<group>"; };
+		0FDB4B061933F2BD004621EB /* lazy4_deprecated_internal_FlowWithFirstFlatten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FlowWithFirstFlatten.h; sourceTree = "<group>"; };
+		0FDC7618192D5A0E00B685F3 /* lazy4_internal_CollectionStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_CollectionStorage.h; sourceTree = "<group>"; };
+		0FDFD9D0126C84E500B11725 /* misc_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection.h; sourceTree = "<group>"; };
+		0FDFD9D1126C84E500B11725 /* misc_collection_predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection_predicate.h; sourceTree = "<group>"; };
+		0FDFD9D2126C84E500B11725 /* misc_collection_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection_iterator.h; sourceTree = "<group>"; };
+		0FDFD9D3126C84E500B11725 /* misc_collection_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection_common.h; sourceTree = "<group>"; };
+		0FDFD9D4126C84E500B11725 /* misc_collection_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = misc_collection_common.cc; sourceTree = "<group>"; };
+		0FDFD9D5126C84E500B11725 /* misc_collection_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection_action.h; sourceTree = "<group>"; };
+		0FDFD9D6126C84E500B11725 /* misc_collection_accessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc_collection_accessor.h; sourceTree = "<group>"; };
+		0FE154B716D4288300629641 /* lazy3_internal_IIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IIterator.h; sourceTree = "<group>"; };
+		0FE154B816D42A5100629641 /* lazy3_internal_IteratorAbstractBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorAbstractBridge.h; sourceTree = "<group>"; };
+		0FE154B916D42AE900629641 /* lazy3_internal_IteratorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorBridge.h; sourceTree = "<group>"; };
+		0FE154BA16D42B4A00629641 /* lazy3_internal_IteratorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorAdapter.h; sourceTree = "<group>"; };
+		0FE154BD16D42CDF00629641 /* lazy3_internal_IteratorAdapter_std_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IteratorAdapter_std_vector.h; sourceTree = "<group>"; };
+		0FE17BBA17D675FF00BAAEE8 /* lazy4_deprecated_internal_FirstUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FirstUtility.h; sourceTree = "<group>"; };
+		0FE17BBB17D6794800BAAEE8 /* lazy4_deprecated_internal_SecondUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_SecondUtility.h; sourceTree = "<group>"; };
+		0FE421DD1887396E00264A3A /* lazy4_deprecated_internal_ContentBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ContentBridge.h; sourceTree = "<group>"; };
+		0FE70E571293365F00C7656C /* variety_std_map_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variety_std_map_adapter.h; path = ../../../../../.Trash/variety_std_map_adapter.h; sourceTree = SOURCE_ROOT; };
+		0FE70E5F129342A400C7656C /* variety_iterable_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterable_interface.h; sourceTree = "<group>"; };
+		0FE70E60129343D800C7656C /* variety_iterable_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_iterable_bridge.h; sourceTree = "<group>"; };
+		0FE70E9D129723A600C7656C /* variety_gnu_cxx_normal_iterator_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_gnu_cxx_normal_iterator_adapter.h; sourceTree = "<group>"; };
+		0FE70EA312972BE500C7656C /* variety_std_rb_tree_const_iterator_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_std_rb_tree_const_iterator_adapter.h; sourceTree = "<group>"; };
+		0FE70EDC129B067800C7656C /* variety_cast_collection_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_cast_collection_implementation.h; sourceTree = "<group>"; };
+		0FE70EDD129B08F500C7656C /* variety_cast_iterator_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_cast_iterator_implementation.h; sourceTree = "<group>"; };
+		0FE710C312A309E200C7656C /* variety_std_reverse_iterator_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_std_reverse_iterator_adapter.h; sourceTree = "<group>"; };
+		0FE7DAF919C22D8F00255BDC /* lazy4_internal_IOccurrenceStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IOccurrenceStorage.h; sourceTree = "<group>"; };
+		0FE7DAFA19C22E5300255BDC /* lazy4_internal_OccurrenceStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_OccurrenceStorage.h; sourceTree = "<group>"; };
+		0FE822E218D7A2BE00867A46 /* lazy4_Collection_std_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Collection_std_map.h; sourceTree = "<group>"; };
+		0FE8230C18D7A91700867A46 /* lazy4_deprecated_std_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_std_map.h; sourceTree = "<group>"; };
+		0FE8230D18D7A95800867A46 /* lazy4_Iterator_std_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Iterator_std_map.h; sourceTree = "<group>"; };
+		0FE9C0A913A651D3004A7D18 /* lazy_internal_FlattenerImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_FlattenerImplementation.h; sourceTree = "<group>"; };
+		0FE9C0AA13A651EB004A7D18 /* lazy_internal_FilterImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_FilterImplementation.h; sourceTree = "<group>"; };
+		0FE9C0B213A68824004A7D18 /* _deprecated_lazy_internal_IBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _deprecated_lazy_internal_IBridge.h; sourceTree = "<group>"; };
+		0FE9C0B313A68ECC004A7D18 /* lazy_internal_IGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IGeneric.h; sourceTree = "<group>"; };
+		0FE9C0B413A7ED3C004A7D18 /* lazy_internal_IModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IModifier.h; sourceTree = "<group>"; };
+		0FE9C0B513A7EE8E004A7D18 /* lazy_internal_Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Generic.h; sourceTree = "<group>"; };
+		0FE9C0BA13A7F7A8004A7D18 /* lazy_internal_Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Modifier.h; sourceTree = "<group>"; };
+		0FE9C0BC13A7FFED004A7D18 /* lazy_internal_Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Iterator.h; sourceTree = "<group>"; };
+		0FE9C0C113A80D63004A7D18 /* lazy_internal_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_Collection.h; sourceTree = "<group>"; };
+		0FE9C0C413A810BE004A7D18 /* lazy_internal_IBidirIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IBidirIterator.h; sourceTree = "<group>"; };
+		0FE9C0C513A8114F004A7D18 /* lazy_internal_BidirIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_BidirIterator.h; sourceTree = "<group>"; };
+		0FE9C0C613A81487004A7D18 /* lazy_internal_BidirCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_BidirCollection.h; sourceTree = "<group>"; };
+		0FE9C0C713A8149B004A7D18 /* lazy_internal_IBidirCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy_internal_IBidirCollection.h; sourceTree = "<group>"; };
+		0FEA5F1614C62BB200CD85EA /* deprecated_lazy2_internal_CollectionImplementation_lazy2_Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_CollectionImplementation_lazy2_Collection.h; sourceTree = "<group>"; };
+		0FEA5F1914C62F5300CD85EA /* deprecated_lazy2_internal_CollectionImplementation_basetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_CollectionImplementation_basetype.h; sourceTree = "<group>"; };
+		0FEA5F1A14C62FE500CD85EA /* deprecated_lazy2_internal_IteratorImplementation_basetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_IteratorImplementation_basetype.h; sourceTree = "<group>"; };
+		0FEA5F5C14C7782A00CD85EA /* deprecated_lazy2_internal_CollectionImplementation_void.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_CollectionImplementation_void.h; sourceTree = "<group>"; };
+		0FEA5F6114C77A1400CD85EA /* deprecated_lazy2_internal_IteratorImplementation_void.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deprecated_lazy2_internal_IteratorImplementation_void.h; sourceTree = "<group>"; };
+		0FEA5FAF14C782E500CD85EA /* lazy2_internal_InheritCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy2_internal_InheritCollection.h; sourceTree = "<group>"; };
+		0FEA8D4817F166D10095F5EF /* lazy4_deprecated_internal_IFunctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IFunctor.h; sourceTree = "<group>"; };
+		0FEA8D4917F1683A0095F5EF /* lazy4_deprecated_internal_FunctorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_FunctorUtility.h; sourceTree = "<group>"; };
+		0FEE032D184BD5E8006BCE29 /* lazy4_deprecated_internal_CollectionWithFirstFlatten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithFirstFlatten.h; sourceTree = "<group>"; };
+		0FF16E5718256F5E0076DD31 /* lazy4_deprecated_internal_CollectionWithReverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithReverse.h; sourceTree = "<group>"; };
+		0FF16E83182575F50076DD31 /* lazy4_deprecated_internal_IteratorWithConcatenation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithConcatenation.h; sourceTree = "<group>"; };
+		0FF16E8818257AE80076DD31 /* lazy4_deprecated_internal_CollectionWithConcatenation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_CollectionWithConcatenation.h; sourceTree = "<group>"; };
+		0FF16EB51826720E0076DD31 /* lazy4_deprecated_internal_IteratorWithFirstFlatten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IteratorWithFirstFlatten.h; sourceTree = "<group>"; };
+		0FF415FA1912BA6A0035E8C8 /* lazy4_deprecated_internal_ModifierWithBooleanAnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_ModifierWithBooleanAnd.h; sourceTree = "<group>"; };
+		0FF492C215A777A000C1472A /* lazy3_Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Generic.h; sourceTree = "<group>"; };
+		0FF492C315A7783F00C1472A /* lazy3_internal_IImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IImplementation.h; sourceTree = "<group>"; };
+		0FF492C415A7785D00C1472A /* lazy3_internal_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_Bridge.h; sourceTree = "<group>"; };
+		0FF492C515A778BB00C1472A /* lazy3_internal_IBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IBridge.h; sourceTree = "<group>"; };
+		0FF492C915A77AE600C1472A /* lazy3_internal_GenericBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_GenericBridge.h; sourceTree = "<group>"; };
+		0FF492CE15A77CCA00C1472A /* lazy3_internal_FlowBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_FlowBridge.h; sourceTree = "<group>"; };
+		0FF492CF15A77CF900C1472A /* lazy3_Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_Flow.h; sourceTree = "<group>"; };
+		0FF492DD15A7807000C1472A /* lazy3_internal_IGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IGeneric.h; sourceTree = "<group>"; };
+		0FF492DE15A786F600C1472A /* lazy3_internal_IFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy3_internal_IFlow.h; sourceTree = "<group>"; };
+		0FF682751839711A003FDF9E /* lazy4_deprecated_internal_IPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_IPair.h; sourceTree = "<group>"; };
+		0FF682761839722A003FDF9E /* lazy4_deprecated_internal_PairWithContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairWithContent.h; sourceTree = "<group>"; };
+		0FF68277183975EB003FDF9E /* lazy4_Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_Pair.h; sourceTree = "<group>"; };
+		0FF682781839764D003FDF9E /* lazy4_deprecated_internal_PairBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_deprecated_internal_PairBridge.h; sourceTree = "<group>"; };
+		0FF8D3DE134A5C3700B5C54A /* variety_internal_FlattenIteratorImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_internal_FlattenIteratorImplementation.h; sourceTree = "<group>"; };
+		0FF9B2A8195B65DC009C83FA /* lazy4_internal_IDualStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IDualStorage.h; sourceTree = "<group>"; };
+		0FF9B2B9195B6A16009C83FA /* lazy4_internal_IBijectiveStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_IBijectiveStorage.h; sourceTree = "<group>"; };
+		0FF9B2DE195B7708009C83FA /* lazy4_internal_DualStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazy4_internal_DualStorage.h; sourceTree = "<group>"; };
+		0FFC65531284A7A100EE832B /* variety_const_random_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_random_interface.h; sourceTree = "<group>"; };
+		0FFC65541284A7E600EE832B /* variety_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_interface.h; sourceTree = "<group>"; };
+		0FFC65551284AB0200EE832B /* variety_const_associative_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_associative_interface.h; sourceTree = "<group>"; };
+		0FFC655A1284AF4C00EE832B /* vector_container_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector_container_interface.h; sourceTree = "<group>"; };
+		0FFC655B1284AFD100EE832B /* implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implementation.h; sourceTree = "<group>"; };
+		0FFC655E1284B3AD00EE832B /* container_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = container_interface.h; sourceTree = "<group>"; };
+		0FFC65621284B8B200EE832B /* map_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = map_interface.h; sourceTree = "<group>"; };
+		0FFC65631284B9F800EE832B /* collection_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = collection_interface.h; path = ../../../../../.Trash/collection_interface.h; sourceTree = SOURCE_ROOT; };
+		0FFC65681284C0C700EE832B /* variety_forward_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_forward_interface.h; sourceTree = "<group>"; };
+		0FFC65691284C19400EE832B /* variety_mutable_associative_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_associative_interface.h; sourceTree = "<group>"; };
+		0FFC656A1284C1C700EE832B /* variety_mutable_random_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_random_interface.h; sourceTree = "<group>"; };
+		0FFC656F1284C38D00EE832B /* iterator_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterator_interface.h; sourceTree = "<group>"; };
+		0FFC65701284C44200EE832B /* variety_output_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_output_interface.h; sourceTree = "<group>"; };
+		0FFC65711284C51600EE832B /* variety_input_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_input_interface.h; sourceTree = "<group>"; };
+		0FFC65741286A11900EE832B /* mutable_container_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mutable_container_interface.h; sourceTree = "<group>"; };
+		0FFC65751286A1AB00EE832B /* vector_mutable_container_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector_mutable_container_interface.h; sourceTree = "<group>"; };
+		0FFC65761286A2A700EE832B /* map_mutable_container_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = map_mutable_container_interface.h; sourceTree = "<group>"; };
+		0FFC65791286A3D200EE832B /* reference_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reference_container_implementation.h; sourceTree = "<group>"; };
+		0FFC657A1286A3F100EE832B /* mutable_reference_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mutable_reference_container_implementation.h; sourceTree = "<group>"; };
+		0FFC657B1286A40700EE832B /* instance_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instance_container_implementation.h; sourceTree = "<group>"; };
+		0FFC657C1286A41B00EE832B /* mutable_instance_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mutable_instance_container_implementation.h; sourceTree = "<group>"; };
+		0FFC658C1287169400EE832B /* variety_backward_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_backward_interface.h; sourceTree = "<group>"; };
+		0FFC658D128B35A100EE832B /* variety_forward_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_forward_bridge.h; sourceTree = "<group>"; };
+		0FFC658E128B373900EE832B /* output_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = output_iterator.h; sourceTree = "<group>"; };
+		0FFC65A1128B3CEF00EE832B /* variety_output_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_output_bridge.h; sourceTree = "<group>"; };
+		0FFC65F5128B4F7E00EE832B /* variety_unknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variety_unknown.h; path = ../../../../../variety_unknown.h; sourceTree = SOURCE_ROOT; };
+		0FFC65F6128B501700EE832B /* variety_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_bridge.h; sourceTree = "<group>"; };
+		0FFC65F7128B507700EE832B /* variety_implementation_bis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_implementation_bis.h; sourceTree = "<group>"; };
+		0FFC6603128B5AB600EE832B /* variety_const_random_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_random_bridge.h; sourceTree = "<group>"; };
+		0FFC6612128BF38600EE832B /* variety_mutable_random_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_random_bridge.h; sourceTree = "<group>"; };
+		0FFC6613128BF44D00EE832B /* variety_const_associative_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_associative_bridge.h; sourceTree = "<group>"; };
+		0FFC6614128BF4B800EE832B /* variety_mutable_associative_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_mutable_associative_bridge.h; sourceTree = "<group>"; };
+		0FFC6617128BF64A00EE832B /* variety_const_reference_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_const_reference_container_implementation.h; sourceTree = "<group>"; };
+		0FFC6619128BF73C00EE832B /* variety_container_implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_container_implementation.h; sourceTree = "<group>"; };
+		0FFC661F128C073900EE832B /* variety_static_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_static_types.h; sourceTree = "<group>"; };
+		0FFC662B128C3F2A00EE832B /* variety_std_vector_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_std_vector_adapter.h; sourceTree = "<group>"; };
+		0FFC6633128C43E900EE832B /* variety_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variety_adapter.h; sourceTree = "<group>"; };
+		8DD76F6C0486A84900D96B5E /* collection */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = collection; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6859E8B029090EE04C91782 /* collection.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = collection.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6859E8C029090F304C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = collection;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0FB1CFBC17D3C41F003D30A3 /* lazy4 */,
+				0F523C9C156455C80065BF22 /* lazy3 */,
+				0F8A69A71444F1FF002541F4 /* lazy2 */,
+				0FF8D410134A762100B5C54A /* lazy */,
+				0FFC655C1284B35200EE832B /* implementation */,
+				0FDFD9D0126C84E500B11725 /* misc_collection.h */,
+				0FDFD9D1126C84E500B11725 /* misc_collection_predicate.h */,
+				0FDFD9D2126C84E500B11725 /* misc_collection_iterator.h */,
+				0FDFD9D3126C84E500B11725 /* misc_collection_common.h */,
+				0FDFD9D4126C84E500B11725 /* misc_collection_common.cc */,
+				0FDFD9D5126C84E500B11725 /* misc_collection_action.h */,
+				0FDFD9D6126C84E500B11725 /* misc_collection_accessor.h */,
+				0FFC658E128B373900EE832B /* output_iterator.h */,
+				0FFC656F1284C38D00EE832B /* iterator_interface.h */,
+				0FFC65631284B9F800EE832B /* collection_interface.h */,
+				0F462578128C9AEB00E60AD1 /* others */,
+				0FFC654F1284A63700EE832B /* internal */,
+				0F5033B812705DB30059C34F /* iterator_driver.h */,
+				0F5033BC12705E510059C34F /* set_wrapper.h */,
+				0F5033BD12705E750059C34F /* vector_wrapper.h */,
+				0F5033BE12705F8E0059C34F /* iterator.h */,
+				0F5033BF12705F9A0059C34F /* collection.h */,
+				0F5033C2127064D80059C34F /* container_wrapper.h */,
+				0F5033C3127064E60059C34F /* iterator_wrapper.h */,
+				0F5033C6127065C00059C34F /* collection_driver.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		0F462578128C9AEB00E60AD1 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				0F29E96012AC4E3D0085856F /* variety_internal_GenericTraits.h */,
+				0F29E8D212AC2FD40085856F /* variety_internal_Implementation.h */,
+				0F20BDCC12DA0F3300354156 /* variety_internal_Bridge.h */,
+				0FAB098913186042000573B0 /* variety_internal_DualBridge.h */,
+				0FAB098A1318644E000573B0 /* variety_internal_SharedImplementation.h */,
+				0F602D3B12C94F0D000CC30C /* variety_internal_BasicContainerInterface.h */,
+				0F602ACE12C7B83E000CC30C /* variety_internal_BasicIteratorInterface.h */,
+				0F602C9F12C8FF2F000CC30C /* variety_internal_InputIteratorInterface.h */,
+				0F81230212F8BBE200A32C39 /* variety_internal_InputAccessorInterface.h */,
+				0F8123E5130FC7DA00A32C39 /* variety_internal_SetDatumAccessorInterface.h */,
+				0F602AD912C7BD22000CC30C /* variety_internal_ForwardIteratorInterface.h */,
+				0F602ADA12C7BF9F000CC30C /* variety_internal_BackwardIteratorInterface.h */,
+				0F602ADB12C7BFCF000CC30C /* variety_internal_PtrDiffIteratorInterface.h */,
+				0F1BA8D512D7CADD000A9A46 /* variety_internal_IteratorInterface.h */,
+				0F8123881301F24100A32C39 /* variety_internal_AccessorInterface.h */,
+				0F8123EC13119A9F00A32C39 /* variety_internal_DatumAccessorInterface.h */,
+				0F602CA012C9013D000CC30C /* variety_internal_RandomIteratorInterface.h */,
+				0F602CFA12C93F99000CC30C /* variety_internal_AdapterContainerInterface.h */,
+				0F602CF912C939F5000CC30C /* variety_internal_AdapterIteratorInterface.h */,
+				0F1BA8CF12D7CA3F000A9A46 /* variety_internal_BasicContainerBridge.h */,
+				0F1BA8CE12D7CA1E000A9A46 /* variety_internal_BasicIteratorBridge.h */,
+				0F1BA8D012D7CA56000A9A46 /* variety_internal_InputIteratorBridge.h */,
+				0F81238A1301F33100A32C39 /* variety_internal_InputAccessorBridge.h */,
+				0F8123E6130FC91500A32C39 /* variety_internal_SetDatumAccessorBridge.h */,
+				0F1BA8D112D7CA6D000A9A46 /* variety_internal_ForwardIteratorBridge.h */,
+				0F1BA8D212D7CA7F000A9A46 /* variety_internal_BackwardIteratorBridge.h */,
+				0F1BA8D312D7CA92000A9A46 /* variety_internal_PtrDiffIteratorBridge.h */,
+				0F1BA8D612D7CB12000A9A46 /* variety_internal_IteratorBridge.h */,
+				0F8123891301F25A00A32C39 /* variety_internal_AccessorBridge.h */,
+				0F8123EB1311998000A32C39 /* variety_internal_DatumAccessorBridge.h */,
+				0F1BA8D412D7CABD000A9A46 /* variety_internal_RandomIteratorBridge.h */,
+				0F602CFB12C94031000CC30C /* variety_internal_AdapterContainer.h */,
+				0F602ABB12C79E3B000CC30C /* variety_internal_AdapterIterator.h */,
+				0F602D3412C94C0A000CC30C /* variety_internal_AdapterContainer_std_vector.h */,
+				0F602AB912C799C8000CC30C /* variety_internal_AdapterIterator_gnu_cxx_normal_iterator.h */,
+				0F602ABD12C7A326000CC30C /* variety_internal_AdapterIterator_std_Rb_tree_const_iterator.h */,
+				0F602AC812C7AF33000CC30C /* variety_internal_AdapterIterator_std_Rb_tree_iterator.h */,
+				0F602AC612C7AE22000CC30C /* variety_internal_AdapterIterator_std_List_iterator.h */,
+				0F602AC712C7AEB8000CC30C /* variety_internal_AdapterIterator_std_List_const_iterator.h */,
+				0F602AC912C7B206000CC30C /* variety_internal_AdapterIterator_std_Bit_const_iterator.h */,
+				0F602ACA12C7B3AE000CC30C /* variety_internal_AdapterIterator_std_Bit_iterator.h */,
+				0F602ACB12C7B458000CC30C /* variety_internal_AdapterIterator_std_Deque_iterator.h */,
+				0F602CF812C93665000CC30C /* variety_internal_AdapterContainerImplementation.h */,
+				0F602B7512C7FDE0000CC30C /* variety_internal_AdapterIteratorImplementation.h */,
+				0F1BA81812D7B059000A9A46 /* variety_internal_InputIteratorImplementation.h */,
+				0FF8D3DE134A5C3700B5C54A /* variety_internal_FlattenIteratorImplementation.h */,
+				0F81230012F8B68300A32C39 /* variety_internal_MethodAccessorImplementation.h */,
+				0F8123FE1315BBD200A32C39 /* variety_internal_MethodDatumAccessorImplementation.h */,
+				0F8123D6130FAEC400A32C39 /* variety_internal_FunctionAccessorImplementation.h */,
+				0F8123FD1315BB8600A32C39 /* variety_internal_FunctionDatumAccessorImplementation.h */,
+				0F8123841301E87F00A32C39 /* variety_internal_AccessorImplementation.h */,
+				0F29E8CB12AC27E70085856F /* variety_Generic.h */,
+				0F6D7A8F135B1954007ABD9D /* variety_Modifier.h */,
+				0F20C15412ECB42300354156 /* variety_Accessor.h */,
+				0F1BA7EF12D7A792000A9A46 /* variety_Iterator.h */,
+				0F602B4612C7CB45000CC30C /* variety_RandomIterator.h */,
+				0F602B7212C7FA57000CC30C /* variety_IteratorFactory.h */,
+				0F462576128C9A7100E60AD1 /* variety_iterator2.h */,
+				0F29EA1412B2CC140085856F /* variety_ITransform.h */,
+				0F29EA1612B2CC6B0085856F /* variety_IPredicate.h */,
+				0F29E8CA12AC24710085856F /* variety_ICollection.h */,
+				0F29E8CE12AC295F0085856F /* variety_IUnknown.h */,
+				0F29E97E12AEE2010085856F /* variety_internal_ICollection.h */,
+				0F29E8D612AC31700085856F /* variety_IList.h */,
+				0F602B5A12C7E7F6000CC30C /* variety_generic_traits.h */,
+				0F602AB312C793A6000CC30C /* variety_IIterator.h */,
+				0F29E97612AEE0390085856F /* variety_internal_IList.h */,
+				0F29E8D712AC33750085856F /* variety_List.h */,
+				0F462579128C9B6300E60AD1 /* variety_collection.h */,
+				0F462577128C9AB800E60AD1 /* variety_output_iterator.h */,
+			);
+			name = others;
+			sourceTree = "<group>";
+		};
+		0F523C9C156455C80065BF22 /* lazy3 */ = {
+			isa = PBXGroup;
+			children = (
+				0FFC6618128BF65200EE832B /* bar */,
+				0F2559EC15A8E0B800671AE0 /* lazy3_internal_Value.h */,
+				0FF492C315A7783F00C1472A /* lazy3_internal_IImplementation.h */,
+				0FF492C515A778BB00C1472A /* lazy3_internal_IBridge.h */,
+				0FF492DD15A7807000C1472A /* lazy3_internal_IGeneric.h */,
+				0F0F89261612381100EC9A5D /* lazy3_internal_IContent.h */,
+				0F4B22A01614EA3A008EC1A7 /* lazy3_internal_IPair.h */,
+				0FC9D1D915B8A053002AD497 /* lazy3_internal_IModifier.h */,
+				0F4B22A11614EB44008EC1A7 /* lazy3_internal_IAccessor.h */,
+				0FF492DE15A786F600C1472A /* lazy3_internal_IFlow.h */,
+				0FE154B716D4288300629641 /* lazy3_internal_IIterator.h */,
+				0F639F4E16067B8C0073EC3C /* lazy3_internal_ICollection.h */,
+				0F3020CE160FAB8800454889 /* lazy3_internal_GenericAbstractBridge.h */,
+				0F0F8927161239E700EC9A5D /* lazy3_internal_ContentAbstractBridge.h */,
+				0F4B22A41614EBE0008EC1A7 /* lazy3_internal_PairAbstractBridge.h */,
+				0F3020CD160FAA5E00454889 /* lazy3_internal_FlowAbstractBridge.h */,
+				0FE154B816D42A5100629641 /* lazy3_internal_IteratorAbstractBridge.h */,
+				0F3020E5160FB05900454889 /* lazy3_internal_CollectionAbstractBridge.h */,
+				0F3020E8160FB68100454889 /* lazy3_internal_ModifierAbstractBridge.h */,
+				0F4B22A51614ED12008EC1A7 /* lazy3_internal_AccessorAbstractBridge.h */,
+				0FF492C415A7785D00C1472A /* lazy3_internal_Bridge.h */,
+				0FF492C915A77AE600C1472A /* lazy3_internal_GenericBridge.h */,
+				0F0F89281612440F00EC9A5D /* lazy3_internal_ContentBridge.h */,
+				0F4B22A71614EE66008EC1A7 /* lazy3_internal_PairBridge.h */,
+				0F3020E9160FB75300454889 /* lazy3_internal_ModifierBridge.h */,
+				0F4B22A61614EDF9008EC1A7 /* lazy3_internal_AccessorBridge.h */,
+				0FF492CE15A77CCA00C1472A /* lazy3_internal_FlowBridge.h */,
+				0FE154B916D42AE900629641 /* lazy3_internal_IteratorBridge.h */,
+				0FC9D1DD15B8A48C002AD497 /* lazy3_internal_CollectionBridge.h */,
+				0F6D1169162211B600624B58 /* lazy3_internal_ModifierWithLink.h */,
+				0FC9D1E615B8A6B1002AD497 /* lazy3_internal_FlowWithModifierOnFirst.h */,
+				0F22C4F216D95DAA008A39BE /* lazy3_internal_IteratorWithModifierOnFirst.h */,
+				0FC989E516138B1C00E234D0 /* lazy3_internal_FlowWithFilterOnFirst.h */,
+				0F22C4F316D95E14008A39BE /* lazy3_internal_IteratorWithFilterOnFirst.h */,
+				0F65732516A4AA5400AB02F0 /* lazy3_internal_FlowWithStaticCast.h */,
+				0F22C4F416D95E43008A39BE /* lazy3_internal_IteratorWithStaticCast.h */,
+				0F159F1C16EE8E360058A4C3 /* lazy3_internal_EntityWithStaticCast.h */,
+				0F6D11981622237900624B58 /* lazy3_internal_FlowElement.h */,
+				0FA6A98116D9610E00F3646F /* lazy3_internal_IteratorElement.h */,
+				0F235659165979BE00A90C3C /* lazy3_internal_AccessorElement.h */,
+				0F23565A16597CE900A90C3C /* lazy3_internal_AccessorAdapter.h */,
+				0F856EF516348BC400079D15 /* lazy3_internal_ContentElement.h */,
+				0F6D11A516222B4D00624B58 /* lazy3_internal_FlowAdapter.h */,
+				0FE154BA16D42B4A00629641 /* lazy3_internal_IteratorAdapter.h */,
+				0F6D11A816222E2900624B58 /* lazy3_internal_FlowAdapter_std_vector.h */,
+				0FE154BD16D42CDF00629641 /* lazy3_internal_IteratorAdapter_std_vector.h */,
+				0FF492C215A777A000C1472A /* lazy3_Generic.h */,
+				0F4B22481614D76B008EC1A7 /* lazy3_Modifier.h */,
+				0FF492CF15A77CF900C1472A /* lazy3_Flow.h */,
+				0F22A27F1613A70F004F553B /* lazy3_Iterator.h */,
+				0FC9D1DC15B8A3C4002AD497 /* lazy3_Collection.h */,
+				0F6D11AB16222E7400624B58 /* lazy3_std_vector.h */,
+				0F3020EA160FB7DD00454889 /* lazy3_Accessor.h */,
+				0F22A26A1613955F004F553B /* lazy3_Predicate.h */,
+				0F22A27E1613A5BB004F553B /* lazy3_Counter.h */,
+				0F159F1E16EE8E990058A4C3 /* deprecated_lazy3_internal_EntityAdapter.h */,
+				0F159F1A16EE8D9D0058A4C3 /* deprecated_lazy3_internal_EntityWithFilterOnFirst.h */,
+				0F159F3216EE91360058A4C3 /* deprecated_lazy3_internal_EntityAdapter_std_map_vector.h */,
+				0F159F1D16EE8E630058A4C3 /* deprecated_lazy3_internal_EntityElement.h */,
+				0F159F1F16EE8EB30058A4C3 /* deprecated_lazy3_internal_INode.h */,
+				0F159F1916EE8D470058A4C3 /* deprecated_lazy3_internal_EntityBridge.h */,
+				0F159F1816EE8CF10058A4C3 /* deprecated_lazy3_internal_EntityAbstractBridge.h */,
+				0F159F1716EE8B500058A4C3 /* deprecated_lazy3_internal_IEntity.h */,
+				0F159F1B16EE8DF20058A4C3 /* deprecated_lazy3_internal_EntityWithModifierOnFirst.h */,
+				0F2559D015A8D6D800671AE0 /* deprecated_lazy3_specialization_Flow.h */,
+				0F6D11A716222D6B00624B58 /* deprecated_lazy3_internal_IAdapter.h */,
+				0FD236BB17E6555E003FDD91 /* deprecated_main.h */,
+				0FD236BC17E6555E003FDD91 /* deprecated_main.cpp */,
+			);
+			name = lazy3;
+			sourceTree = "<group>";
+		};
+		0F8A69A71444F1FF002541F4 /* lazy2 */ = {
+			isa = PBXGroup;
+			children = (
+				0FC2A8131466C5BB0034C5E9 /* lazy2_internal_ValueTraits.h */,
+				0F7AA2AB14858823000CEF57 /* lazy2_internal_Interface.h */,
+				0FC2A80C1466C07C0034C5E9 /* lazy2_internal_Implementation.h */,
+				0FC2A8E5146B2C900034C5E9 /* lazy2_internal_Callback.h */,
+				0F8A69C11444F52B002541F4 /* lazy2_internal_Bridge.h */,
+				0FC2A8E3146B297A0034C5E9 /* lazy2_internal_TypedBridge.h */,
+				0F9C3AB514D55AB10040424B /* lazy2_internal_PublishedBridge.h */,
+				0FC2A85614673D3B0034C5E9 /* lazy2_internal_IteratorInterface.h */,
+				0FC2A8E6146B308C0034C5E9 /* lazy2_internal_IteratorCallback.h */,
+				0FCE08041495643600AF15AA /* lazy2_internal_AssociateIteratorInterface.h */,
+				0FCE0805149564CE00AF15AA /* lazy2_internal_AssociateIteratorCallback.h */,
+				0FCE07C914936DE700AF15AA /* lazy2_internal_AssociateCollectionInterface.h */,
+				0FCE07CC149374DF00AF15AA /* lazy2_internal_AssociateCollectionCallback.h */,
+				0FC2A8E21469D3F10034C5E9 /* lazy2_internal_CollectionInterface.h */,
+				0FC2A8E4146B2B1F0034C5E9 /* lazy2_internal_CollectionCallback.h */,
+				0FC2A8E7146B313F0034C5E9 /* lazy2_internal_InstanceInterface.h */,
+				0FC2A8E8146B31C30034C5E9 /* lazy2_internal_InstanceCallback.h */,
+				0FCE07B11492B76400AF15AA /* lazy2_internal_AccessorInterface.h */,
+				0F1E3DEA1478675100255ABF /* lazy2_internal_AccessorCallback.h */,
+				0FC2A8121466C2E70034C5E9 /* lazy2_internal_InstanceImplementation.h */,
+				0FC2A8141466C6030034C5E9 /* lazy2_internal_CollectionImplementation.h */,
+				0F9E69B01471B98200232EAC /* lazy2_internal_IteratorImplementation.h */,
+				0F1E3E09147AE3FA00255ABF /* lazy2_internal_FlattenCollectionImplementation.h */,
+				0F1E3E0A147AE60300255ABF /* lazy2_internal_FlattenIteratorImplementation.h */,
+				0FCE07C31492BFD400AF15AA /* lazy2_internal_AccessorImplementation.h */,
+				0F1E3DEB1478683600255ABF /* lazy2_internal_AccessorCollectionImplementation.h */,
+				0FCE07C61492C6A000AF15AA /* lazy2_internal_AccessorIteratorImplementation.h */,
+				0F712EA81534C4DF002772E9 /* lazy2_internal_ConcatenateCollectionImplementation.h */,
+				0F712EAB1534CE1F002772E9 /* lazy2_internal_ConcatenateIteratorImplementation.h */,
+				0F9E6B68147474B300232EAC /* lazy2_internal_CollectionImplementation_std_vector.h */,
+				0F9C39A714D1E7310040424B /* lazy2_internal_CollectionImplementation_std_vector_std_pair.h */,
+				0F6671E514CA201F007EDDB6 /* lazy2_internal_CollectionImplementation_std_pair.h */,
+				0F9E6B9E1475BDD400232EAC /* lazy2_internal_IteratorImplementation_std_vector.h */,
+				0F9C39A814D1E84F0040424B /* lazy2_internal_IteratorImplementation_std_vector_std_pair.h */,
+				0F6671E614CA21E6007EDDB6 /* lazy2_internal_IteratorImplementation_std_pair.h */,
+				0FEA5FAF14C782E500CD85EA /* lazy2_internal_InheritCollection.h */,
+				0F340C1E14F839BE0028E01C /* lazy2_internal_ConstructorCollection.h */,
+				0F2E452614F2F8B60015E372 /* lazy2_internal_AssociateCollection.h */,
+				0F2E454914F304000015E372 /* lazy2_internal_ContainerCollection.h */,
+				0F2E453114F2FC190015E372 /* lazy2_internal_FlattenCollection.h */,
+				0F9C3A2814D20AA60040424B /* lazy2_internal_InheritIterator.h */,
+				0F9E6C0C1477062600232EAC /* lazy2_std_vector.h */,
+				0F8A69AA1444F2D3002541F4 /* lazy2_Generic.h */,
+				0F8A69A81444F24B002541F4 /* lazy2_Collection.h */,
+				0FC2A8B8146746D50034C5E9 /* lazy2_Iterator.h */,
+				0F1E3DE81478666F00255ABF /* lazy2_Accessor.h */,
+				0F9C3A3914D466550040424B /* deprecated_lazy2_internal_ContainerInterface.h */,
+				0F9C3A3A14D4666C0040424B /* deprecated_lazy2_internal_ContainerCallback.h */,
+				0FEA5F1614C62BB200CD85EA /* deprecated_lazy2_internal_CollectionImplementation_lazy2_Collection.h */,
+				0F9C398E14CF5F100040424B /* deprecated_lazy2_internal_EmptyCollectionImplementation.h */,
+				0F9C398F14CF61580040424B /* deprecated_lazy2_internal_EmptyIteratorImplementation.h */,
+				0FEA5F1A14C62FE500CD85EA /* deprecated_lazy2_internal_IteratorImplementation_basetype.h */,
+				0FEA5F1914C62F5300CD85EA /* deprecated_lazy2_internal_CollectionImplementation_basetype.h */,
+				0FEA5F6114C77A1400CD85EA /* deprecated_lazy2_internal_IteratorImplementation_void.h */,
+				0FEA5F5C14C7782A00CD85EA /* deprecated_lazy2_internal_CollectionImplementation_void.h */,
+			);
+			name = lazy2;
+			sourceTree = "<group>";
+		};
+		0FB1CFBC17D3C41F003D30A3 /* lazy4 */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				0F5D50EE191FBF6800920AB0 /* lazy4_internal_CollectorStorage.h */,
+				0F5D50EF191FC0CE00920AB0 /* lazy4_internal_SingleStorage.h */,
+				0FDC7618192D5A0E00B685F3 /* lazy4_internal_CollectionStorage.h */,
+				0FAAD9A4199EA93300373AE0 /* lazy4_internal_ChainStorage.h */,
+				0F5D50F3191FD45500920AB0 /* lazy4_internal_KeyStorage.h */,
+				0F5D50F4191FD80D00920AB0 /* lazy4_internal_SharedStorage.h */,
+				0FF9B2DE195B7708009C83FA /* lazy4_internal_DualStorage.h */,
+				0F2AED7219B503880054E63F /* lazy4_internal_InheritanceStorage.h */,
+				0FE7DAFA19C22E5300255BDC /* lazy4_internal_OccurrenceStorage.h */,
+				0F5D50F0191FC28E00920AB0 /* lazy4_internal_IStorage.h */,
+				0F5D50F1191FCA8500920AB0 /* lazy4_internal_ITemplateStorage.h */,
+				0F5D50F5191FFDFA00920AB0 /* lazy4_internal_IAssociativeStorage.h */,
+				0F5D50F61920068900920AB0 /* lazy4_internal_ISharedStorage.h */,
+				0FF9B2A8195B65DC009C83FA /* lazy4_internal_IDualStorage.h */,
+				0FF9B2B9195B6A16009C83FA /* lazy4_internal_IBijectiveStorage.h */,
+				0F2AED7319B5048F0054E63F /* lazy4_internal_IInheritanceStorage.h */,
+				0FE7DAF919C22D8F00255BDC /* lazy4_internal_IOccurrenceStorage.h */,
+				0FB1CFC717D3CD47003D30A3 /* lazy4_internal_Content.h */,
+				0F2D3C6A19D7420A0039B3EC /* lazy4_internal_Modifier.h */,
+				0F2D3C6D19D744100039B3EC /* lazy4_internal_Pair.h */,
+				0F2D3C3E19D72DBF0039B3EC /* lazy4_internal_Flow.h */,
+				0F63833519CB6199005C4747 /* lazy4_internal_Query.h */,
+				0F2D3C4C19D7308B0039B3EC /* lazy4_internal_Iterator.h */,
+				0F2D3C4D19D733C00039B3EC /* lazy4_internal_Collection.h */,
+				0F05D66417F81C2800C640C1 /* lazy4_Modifier.h */,
+				0FF68277183975EB003FDF9E /* lazy4_Pair.h */,
+				0FCB96811935299200D0AB49 /* lazy4_Flow.h */,
+				0FDB4AD21933E435004621EB /* lazy4_Flow_std_tr1_unordered_map.h */,
+				0FCB9693193530D100D0AB49 /* lazy4_Flow_std_vector.h */,
+				0FCB96941935312300D0AB49 /* lazy4_Flow_std_map.h */,
+				0F079CD419CA206800491C7A /* lazy4_Query.h */,
+				0F079D2519CA33B400491C7A /* lazy4_Query_std_tr1_unordered_map.h */,
+				0F2D3D4719D75E510039B3EC /* lazy4_Query_std_vector.h */,
+				0F2D3D4819D75E630039B3EC /* lazy4_Query_std_map.h */,
+				0FB1D01B17D3E0F2003D30A3 /* lazy4_Iterator.h */,
+				0FB1CFC017D3C692003D30A3 /* lazy4_Iterator_std_vector.h */,
+				0FE8230D18D7A95800867A46 /* lazy4_Iterator_std_map.h */,
+				0F514940180FDF6700A9BCBF /* lazy4_Collection.h */,
+				0F51494B180FE10200A9BCBF /* lazy4_Collection_std_vector.h */,
+				0FE822E218D7A2BE00867A46 /* lazy4_Collection_std_map.h */,
+				0FB1D02017D3E710003D30A3 /* lazy4_deprecated_std_vector.h */,
+				0FE8230C18D7A91700867A46 /* lazy4_deprecated_std_map.h */,
+				0FDB4AD01933E3C1004621EB /* lazy4_deprecated_std_tr1_unordered_map.h */,
+				0F079D3819CA37E100491C7A /* lazy4_deprecated_internal_Iterator_std_tr1_unordered_map.h */,
+				0FB1CFBE17D3C4C5003D30A3 /* lazy4_deprecated_internal_Type.h */,
+				0FCB968819352E7300D0AB49 /* lazy4_deprecated_internal_DynamicCast.h */,
+				0FB1D01D17D3E4FC003D30A3 /* lazy4_deprecated_internal_Bridge.h */,
+				0FEA8D4917F1683A0095F5EF /* lazy4_deprecated_internal_FunctorUtility.h */,
+				0FCFB31F18B2B637004B40E9 /* lazy4_deprecated_internal_PairUtility.h */,
+				0FE17BBA17D675FF00BAAEE8 /* lazy4_deprecated_internal_FirstUtility.h */,
+				0FE17BBB17D6794800BAAEE8 /* lazy4_deprecated_internal_SecondUtility.h */,
+				0FD57FAA17D90AAE0054E05C /* lazy4_deprecated_internal_ContentUtility.h */,
+				0FB1CFC417D3CB92003D30A3 /* lazy4_deprecated_internal_IContent.h */,
+				0FE421DD1887396E00264A3A /* lazy4_deprecated_internal_ContentBridge.h */,
+				0FF682751839711A003FDF9E /* lazy4_deprecated_internal_IPair.h */,
+				0FF682781839764D003FDF9E /* lazy4_deprecated_internal_PairBridge.h */,
+				0FF682761839722A003FDF9E /* lazy4_deprecated_internal_PairWithContent.h */,
+				0FCFB34618B2C64E004B40E9 /* lazy4_deprecated_internal_PairWithStaticCast.h */,
+				0FCFB34D18B2C86F004B40E9 /* lazy4_deprecated_internal_PairWithFirstAccessor.h */,
+				0FCFB35818B2C996004B40E9 /* lazy4_deprecated_internal_PairWithPermutation.h */,
+				0F3D3DD717EF01CF00ED7155 /* lazy4_deprecated_internal_IModifier.h */,
+				0F05D66517F81CA800C640C1 /* lazy4_deprecated_internal_ModifierBridge.h */,
+				0F3D3DCB17ECE25B00ED7155 /* lazy4_deprecated_internal_ModifierWithModifier.h */,
+				0FC84ED11801F2E300CF9283 /* lazy4_deprecated_internal_ModifierWithNew.h */,
+				0F1D999317FB58A6004829EE /* lazy4_deprecated_internal_ModifierWithStaticCast.h */,
+				0FD52C6217FCC32C0029C4CD /* lazy4_deprecated_internal_ModifierWithFunction.h */,
+				0FF415FA1912BA6A0035E8C8 /* lazy4_deprecated_internal_ModifierWithBooleanAnd.h */,
+				0F0EF092191821DE00E01750 /* lazy4_deprecated_internal_ModifierWithBooleanNot.h */,
+				0F0EF0BC19182EC900E01750 /* lazy4_deprecated_internal_ModifierWithBooleanOr.h */,
+				0F0EF0BD19182F2D00E01750 /* lazy4_deprecated_internal_ModifierWithBooleanXor.h */,
+				0FD26C1118CE5CDF00FD9905 /* lazy4_deprecated_internal_ModifierWithIterator.h */,
+				0FD061E417F0EB7B0018655C /* lazy4_deprecated_internal_IClosure.h */,
+				0FD061E517F0EBC70018655C /* lazy4_deprecated_internal_ClosureUtility.h */,
+				0FEA8D4817F166D10095F5EF /* lazy4_deprecated_internal_IFunctor.h */,
+				0FB1CFC317D3CAE2003D30A3 /* lazy4_deprecated_internal_IForward.h */,
+				0FB1CFCF17D3DA93003D30A3 /* lazy4_deprecated_internal_IBackward.h */,
+				0FB1CFC217D3C95E003D30A3 /* lazy4_deprecated_internal_IFirst.h */,
+				0FB1CFCA17D3D8CB003D30A3 /* lazy4_deprecated_internal_ISecond.h */,
+				0F3D3DDA17EF040000ED7155 /* lazy4_deprecated_internal_InputUtility.h */,
+				0F3D3DDB17EF06E200ED7155 /* lazy4_deprecated_internal_OutputUtility.h */,
+				0F0EF0A919182CF400E01750 /* lazy4_deprecated_internal_ModifierWithContent.h */,
+				0F05D66317F8187D00C640C1 /* lazy4_deprecated_internal_ModifierWithFunctionClosure.h */,
+				0FCFB30D18B2B1A4004B40E9 /* lazy4_deprecated_internal_IFlow.h */,
+				0FDB4AF91933EF86004621EB /* lazy4_deprecated_internal_FlowBridge.h */,
+				0FDB4AFA1933F0B9004621EB /* lazy4_deprecated_internal_FlowWithContent.h */,
+				0FDB4AFB1933F0E8004621EB /* lazy4_deprecated_internal_FlowWithPermutation.h */,
+				0FDB4AFC1933F11C004621EB /* lazy4_deprecated_internal_FlowWithBounds.h */,
+				0FDB4AFD1933F147004621EB /* lazy4_deprecated_internal_FlowWithFirstStaticCast.h */,
+				0FDB4AFE1933F16C004621EB /* lazy4_deprecated_internal_FlowWithFirstDynamicCast.h */,
+				0FDB4AFF1933F19D004621EB /* lazy4_deprecated_internal_FlowWithFirstAccessor.h */,
+				0FDB4B001933F1D3004621EB /* lazy4_deprecated_internal_FlowWithSecondAccessor.h */,
+				0FDB4B011933F201004621EB /* lazy4_deprecated_internal_FlowWithFirstFilter.h */,
+				0FDB4B021933F228004621EB /* lazy4_deprecated_internal_FlowWithFirstUnique.h */,
+				0FDB4B051933F277004621EB /* lazy4_deprecated_internal_FlowWithConcatenation.h */,
+				0FDB4B061933F2BD004621EB /* lazy4_deprecated_internal_FlowWithFirstFlatten.h */,
+				0F514927180FD61700A9BCBF /* lazy4_deprecated_internal_ICollection.h */,
+				0F079D1A19CA319A00491C7A /* lazy4_deprecated_internal_CollectionBridge.h */,
+				0F7B4B5B18833CE70049B73E /* lazy4_deprecated_internal_CollectionWithBounds.h */,
+				0F7B4B46188334710049B73E /* lazy4_deprecated_internal_CollectionWithPermutation.h */,
+				0F4D5A75181024FB003DCD0B /* lazy4_deprecated_internal_CollectionWithStaticCast.h */,
+				0F106D3A18CE73A400E38892 /* lazy4_deprecated_internal_CollectionWithFirstDynamicCast.h */,
+				0F4D5A761810276E003DCD0B /* lazy4_deprecated_internal_CollectionWithFirstAccessor.h */,
+				0FDB4A981933D625004621EB /* lazy4_deprecated_internal_CollectionWithSecondAccessor.h */,
+				0F4D5A7718102842003DCD0B /* lazy4_deprecated_internal_CollectionWithFirstFilter.h */,
+				0FA0D94C18246645007B791A /* lazy4_deprecated_internal_CollectionWithFirstUnique.h */,
+				0FF16E5718256F5E0076DD31 /* lazy4_deprecated_internal_CollectionWithReverse.h */,
+				0FF16E8818257AE80076DD31 /* lazy4_deprecated_internal_CollectionWithConcatenation.h */,
+				0FEE032D184BD5E8006BCE29 /* lazy4_deprecated_internal_CollectionWithFirstFlatten.h */,
+				0F51493D180FDDD700A9BCBF /* lazy4_deprecated_internal_CollectionWithContent.h */,
+				0FB1CFCB17D3D959003D30A3 /* lazy4_deprecated_internal_IIterator.h */,
+				0FB1D01C17D3E21C003D30A3 /* lazy4_deprecated_internal_IteratorBridge.h */,
+				0F7B4B47188335160049B73E /* lazy4_deprecated_internal_IteratorWithPermutation.h */,
+				0F7B4B5A188339610049B73E /* lazy4_deprecated_internal_IteratorWithBounds.h */,
+				0F149C9C17D7C5B1003AFB82 /* lazy4_deprecated_internal_IteratorWithStaticCast.h */,
+				0F106D3918CE731C00E38892 /* lazy4_deprecated_internal_IteratorWithFirstDynamicCast.h */,
+				0F3D3DC717ECDA3B00ED7155 /* lazy4_deprecated_internal_IteratorWithFirstAccessor.h */,
+				0FDB4A991933D654004621EB /* lazy4_deprecated_internal_IteratorWithSecondAccessor.h */,
+				0FC84F26180209F400CF9283 /* lazy4_deprecated_internal_IteratorWithFirstFilter.h */,
+				0FA0D94818245D9A007B791A /* lazy4_deprecated_internal_IteratorWithFirstUnique.h */,
+				0FA0D94B1824661C007B791A /* lazy4_deprecated_internal_IteratorWithReverse.h */,
+				0FF16E83182575F50076DD31 /* lazy4_deprecated_internal_IteratorWithConcatenation.h */,
+				0FF16EB51826720E0076DD31 /* lazy4_deprecated_internal_IteratorWithFirstFlatten.h */,
+				0FB1CFBF17D3C5FF003D30A3 /* lazy4_deprecated_internal_IteratorWithContent.h */,
+			);
+			name = lazy4;
+			sourceTree = "<group>";
+		};
+		0FF8D410134A762100B5C54A /* lazy */ = {
+			isa = PBXGroup;
+			children = (
+				0FCDB1DC136DDA1D001C6099 /* lazy_internal_ValueTraits.h */,
+				0FCDB1D7136C8D7A001C6099 /* lazy_internal_Implementation.h */,
+				0FCDB1D6136C8D67001C6099 /* lazy_internal_Bridge.h */,
+				0FE9C0B313A68ECC004A7D18 /* lazy_internal_IGeneric.h */,
+				0FE9C0B513A7EE8E004A7D18 /* lazy_internal_Generic.h */,
+				0F952011139C2C2000336716 /* lazy_internal_IIterator.h */,
+				0FE9C0BC13A7FFED004A7D18 /* lazy_internal_Iterator.h */,
+				0FE9C0B413A7ED3C004A7D18 /* lazy_internal_IModifier.h */,
+				0FE9C0BA13A7F7A8004A7D18 /* lazy_internal_Modifier.h */,
+				0FE9C0C413A810BE004A7D18 /* lazy_internal_IBidirIterator.h */,
+				0FE9C0C513A8114F004A7D18 /* lazy_internal_BidirIterator.h */,
+				0F952006139C2A2B00336716 /* lazy_internal_ICollection.h */,
+				0FE9C0C113A80D63004A7D18 /* lazy_internal_Collection.h */,
+				0FE9C0C713A8149B004A7D18 /* lazy_internal_IBidirCollection.h */,
+				0FE9C0C613A81487004A7D18 /* lazy_internal_BidirCollection.h */,
+				0F7DFA8D139D73EC0061F17A /* lazy_internal_ModifierImplementation.h */,
+				0FE9C0A913A651D3004A7D18 /* lazy_internal_FlattenerImplementation.h */,
+				0FE9C0AA13A651EB004A7D18 /* lazy_internal_FilterImplementation.h */,
+				0FCDB1DA136C900F001C6099 /* lazy_internal_ContainerImplementation.h */,
+				0FCDB1DD1379CB7C001C6099 /* lazy_internal_ContainerImplementation_std_vector.h */,
+				0FCDB1DE1379D07B001C6099 /* lazy_internal_IteratorImplementation.h */,
+				0FCDB1DF1379E12A001C6099 /* lazy_internal_IteratorImplementation_gnu_cxx_normal_iterator.h */,
+				0FCDB1D0136C8B0C001C6099 /* lazy_Generic.h */,
+				0FCDB1CF136C8AF9001C6099 /* lazy_Collection.h */,
+				0F95200B139C2AF100336716 /* lazy_Iterator.h */,
+				0F95200C139C2B1B00336716 /* lazy_Modifier.h */,
+				0F7DFA8C139D736F0061F17A /* lazy_internal_IteratorBridge.h */,
+				0F951FD1139C226800336716 /* lazy_internal_CollectionBridge.h */,
+				0F952012139C2C4200336716 /* _deprecated_lazy_internal_ModifierInterface.h */,
+				0FE9C0B213A68824004A7D18 /* _deprecated_lazy_internal_IBridge.h */,
+				0FCDB1D3136C8CAC001C6099 /* _deprecated_lazy_internal_SharedImplementation.h */,
+			);
+			name = lazy;
+			sourceTree = "<group>";
+		};
+		0FFC654F1284A63700EE832B /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				0FE70E9D129723A600C7656C /* variety_gnu_cxx_normal_iterator_adapter.h */,
+				0FE710C312A309E200C7656C /* variety_std_reverse_iterator_adapter.h */,
+				0FE70EA312972BE500C7656C /* variety_std_rb_tree_const_iterator_adapter.h */,
+				0FE70E571293365F00C7656C /* variety_std_map_adapter.h */,
+				0FFC662B128C3F2A00EE832B /* variety_std_vector_adapter.h */,
+				0F4625E4128EDEA200E60AD1 /* variety_concatenation_implementation.h */,
+				0FE70EDC129B067800C7656C /* variety_cast_collection_implementation.h */,
+				0FE70EDD129B08F500C7656C /* variety_cast_iterator_implementation.h */,
+				0F46266D1290488600E60AD1 /* variety_empty_collection_implementation.h */,
+				0F4626D812906B9F00E60AD1 /* variety_empty_iterator_implementation.h */,
+				0F462566128C7ECC00E60AD1 /* variety_const_reference_implementation.h */,
+				0F462569128C986900E60AD1 /* variety_const_instance_implementation.h */,
+				0F462567128C978C00E60AD1 /* variety_mutable_reference_implementation.h */,
+				0F462568128C981500E60AD1 /* variety_mutable_instance_implementation.h */,
+				0F46262D128F18B600E60AD1 /* variety_iterator_implementation.h */,
+				0F462626128F11A700E60AD1 /* variety_collection_implementation.h */,
+				0F462629128F15D600E60AD1 /* variety_collection_bridge.h */,
+				0F46262B128F16B500E60AD1 /* variety_iterator_bridge.h */,
+				0FFC6603128B5AB600EE832B /* variety_const_random_bridge.h */,
+				0FFC6612128BF38600EE832B /* variety_mutable_random_bridge.h */,
+				0FFC6613128BF44D00EE832B /* variety_const_associative_bridge.h */,
+				0FFC6614128BF4B800EE832B /* variety_mutable_associative_bridge.h */,
+				0FE70E60129343D800C7656C /* variety_iterable_bridge.h */,
+				0FFC65A1128B3CEF00EE832B /* variety_output_bridge.h */,
+				0F462584128C9E7000E60AD1 /* variety_input_bridge.h */,
+				0F462585128C9E8300E60AD1 /* variety_backward_bridge.h */,
+				0FFC658D128B35A100EE832B /* variety_forward_bridge.h */,
+				0F462627128F148400E60AD1 /* variety_collection_interface.h */,
+				0F46262A128F169F00E60AD1 /* variety_iterator_interface.h */,
+				0FFC65531284A7A100EE832B /* variety_const_random_interface.h */,
+				0FFC656A1284C1C700EE832B /* variety_mutable_random_interface.h */,
+				0FFC65551284AB0200EE832B /* variety_const_associative_interface.h */,
+				0FFC65691284C19400EE832B /* variety_mutable_associative_interface.h */,
+				0FE70E5F129342A400C7656C /* variety_iterable_interface.h */,
+				0FFC65681284C0C700EE832B /* variety_forward_interface.h */,
+				0FFC658C1287169400EE832B /* variety_backward_interface.h */,
+				0FFC65711284C51600EE832B /* variety_input_interface.h */,
+				0FFC65701284C44200EE832B /* variety_output_interface.h */,
+				0FFC6633128C43E900EE832B /* variety_adapter.h */,
+				0FFC65F7128B507700EE832B /* variety_implementation_bis.h */,
+				0FFC65F6128B501700EE832B /* variety_bridge.h */,
+				0FFC65541284A7E600EE832B /* variety_interface.h */,
+				0FFC661F128C073900EE832B /* variety_static_types.h */,
+				0FFC65F5128B4F7E00EE832B /* variety_unknown.h */,
+			);
+			name = internal;
+			sourceTree = "<group>";
+		};
+		0FFC65501284A6C200EE832B /* std */ = {
+			isa = PBXGroup;
+			children = (
+				0FFC655A1284AF4C00EE832B /* vector_container_interface.h */,
+				0FFC65751286A1AB00EE832B /* vector_mutable_container_interface.h */,
+				0FFC65621284B8B200EE832B /* map_interface.h */,
+				0FFC65761286A2A700EE832B /* map_mutable_container_interface.h */,
+			);
+			name = std;
+			sourceTree = "<group>";
+		};
+		0FFC65511284A6CC00EE832B /* boost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = boost;
+			sourceTree = "<group>";
+		};
+		0FFC655C1284B35200EE832B /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				0FFC655B1284AFD100EE832B /* implementation.h */,
+				0FFC65791286A3D200EE832B /* reference_container_implementation.h */,
+				0FFC657A1286A3F100EE832B /* mutable_reference_container_implementation.h */,
+				0FFC657B1286A40700EE832B /* instance_container_implementation.h */,
+				0FFC657C1286A41B00EE832B /* mutable_instance_container_implementation.h */,
+			);
+			name = implementation;
+			sourceTree = "<group>";
+		};
+		0FFC6618128BF65200EE832B /* bar */ = {
+			isa = PBXGroup;
+			children = (
+				0FFC655E1284B3AD00EE832B /* container_interface.h */,
+				0FFC65741286A11900EE832B /* mutable_container_interface.h */,
+				0FFC6617128BF64A00EE832B /* variety_const_reference_container_implementation.h */,
+				0FFC6619128BF73C00EE832B /* variety_container_implementation.h */,
+				0FFC65511284A6CC00EE832B /* boost */,
+				0FFC65501284A6C200EE832B /* std */,
+			);
+			name = bar;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* collection */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6859E8C029090F304C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6859E8B029090EE04C91782 /* collection.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* collection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "collection" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = collection;
+			productInstallPath = "$(HOME)/bin";
+			productName = collection;
+			productReference = 8DD76F6C0486A84900D96B5E /* collection */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "collection" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* collection */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* collection */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
+				0FDFD9D7126C84E500B11725 /* misc_collection_common.cc in Sources */,
+				0FD236BD17E6555E003FDD91 /* deprecated_main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = collection;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = collection;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "collection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "collection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
