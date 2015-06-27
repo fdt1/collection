@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\collection">
+      <UniqueIdentifier>{4a5d0e74-9d6a-463f-9040-ed16ff1de349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\storage">
+      <UniqueIdentifier>{102b9d5b-2ed3-4d53-8f74-6085f17b295f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\std">
+      <UniqueIdentifier>{51fe85e2-17a6-4f97-9e23-e553ea62453d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\lazy4_internal_IAssociativeStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_IBijectiveStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_IDualStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_IInheritanceStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_InheritanceStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_IOccurrenceStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_ISharedStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_IStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_ITemplateStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_ChainStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_DualStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_CollectionStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_SingleStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_SharedStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_KeyStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_OccurrenceStorage.h">
+      <Filter>Header Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Iterator_std_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Iterator_std_vector.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Collection_std_vector.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Collection_std_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Query_std_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Query_std_tr1_unordered_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Query_std_vector.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Flow_std_tr1_unordered_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Flow_std_map.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Flow_std_vector.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Collection.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Flow.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Collection.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Content.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Flow.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Iterator.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Modifier.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Pair.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Query.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Iterator.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Modifier.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Pair.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Query.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_List.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_List.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_Index.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy4_internal_Index.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lazy5_flow.h">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
