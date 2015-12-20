@@ -67,7 +67,6 @@ namespace lazy5 {
 		typedef Igeneric super_type;
 		typedef KeyOrValue key_or_value_template;
 		typedef OptionalValue optional_value_template;
-		typedef typename std::conditional<std::is_same<OptionalValue, std::_Nil>::value, KeyOrValue, OptionalValue>::type value_type;
 		typedef typename std::conditional<std::is_same<OptionalValue, std::_Nil>::value, size_t, KeyOrValue>::type key_type;
 		typedef typename std::conditional<std::is_same<OptionalValue, std::_Nil>::value, KeyOrValue, OptionalValue>::type value_type;
 	public:
@@ -117,36 +116,10 @@ namespace lazy5 {
 	
 
 	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
-	class Icontent : public Ielement<KeyOrValue, OptionalValue> {
-	public:
-		typedef Icontent type;
-		typedef Ielement super_type;
-	public:
-		template <typename AnyKey, typename AnyValue>
-		struct change {
-			typedef lazy5::Icontent<AnyKey, AnyValue> type;
-			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
-		};
-
-		template <typename AnyInterface>
-		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface>{	
-		};
-
-		template <typename AnyKey, typename AnyValue>
-		struct has_all_methods_of<Icontent<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
-		};
-
-	public:
-		virtual void set(typename std::decay<value_type>::type const&  value) = 0;
-		virtual void set(typename std::decay<value_type>::type&& value) = 0;
-		virtual type* __clone() const = 0;
-	};
-	
-	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
-	class Ireference : public Icontent<KeyOrValue, OptionalValue> {
+	class Ireference : public Ielement<KeyOrValue, OptionalValue> {
 	public:
 		typedef Ireference type;
-		typedef Icontent super_type;
+		typedef Ielement super_type;
 	public:
 		template <typename AnyKey, typename AnyValue>
 		struct change {
@@ -163,6 +136,8 @@ namespace lazy5 {
 		};
 
 	public:
+		virtual void set(typename std::decay<value_type>::type const&  value) = 0;
+		virtual void set(typename std::decay<value_type>::type&& value) = 0;
 		virtual type* __clone() const = 0;
 	};
 	
@@ -232,6 +207,7 @@ namespace lazy5 {
 	public:
 		virtual type* __clone() const = 0;
 		virtual collection_type* __clone_collection() const = 0;
+		virtual void rewind() = 0;	
 		virtual size_t backward(size_t count = 1) = 0;
 	};
 	
@@ -257,10 +233,6 @@ namespace lazy5 {
 
 		template <typename AnyKey, typename AnyValue>
 		struct has_all_methods_of<Imap_iterator<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
-		};
-
-		template <typename AnyKey, typename AnyValue>
-		struct has_all_methods_of<Icontent<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
 		};
 
 		template <typename AnyKey, typename AnyValue>
@@ -310,6 +282,7 @@ namespace lazy5 {
 		typedef Iquery type;
 		typedef Itemplate_generic super_type;
 		typedef Iflow<KeyOrValue, OptionalValue> iterator_type;
+		typedef Iflow<bridge<Iquery<KeyOrValue, OptionalValue>>> layer_type;
 	public:
 		template <typename AnyKey, typename AnyValue>
 		struct change {
@@ -478,6 +451,217 @@ namespace lazy5 {
 		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const = 0;
 	};
 
+
+	template<typename KeyOrValue, typename OptionalValue>
+	class Islice;
+#if 0		
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Ilayer : public Ilist<KeyOrValue, OptionalValue> {
+	public:
+		typedef Ilayer type;
+		typedef Ilist super_type;
+		typedef typename super_type::iterator_type iterator_type;
+		typedef Islice<KeyOrValue, OptionalValue> slice_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Ilayer<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface>{	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Ilayer<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual iterator_type* __clone_iterator() const = 0;
+		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const = 0;
+		virtual slice_type* __clone_slice() const = 0;
+		virtual Ilayer* __clone_parent() const = 0;
+	};
+
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Islice : public Ilist_iterator<bridge<Ilayer<KeyOrValue, OptionalValue>>> {
+	public:
+		typedef Islice type;
+		typedef Ilist_iterator super_type;
+		typedef Ilist<Ilayer<KeyOrValue, OptionalValue>> collection_type;
+		typedef Ilayer<KeyOrValue, OptionalValue> layer_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Islice<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface> {	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Islice<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual collection_type* __clone_collection() const = 0;
+		virtual layer_type* __clone_layer() const = 0;
+	};
+#elif 0
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Ilayer : public Ilist<KeyOrValue, OptionalValue> {
+	public:
+		typedef Ilayer type;
+		typedef Ilist super_type;
+		typedef Ilayer_iterator<KeyOrValue, OptionalValue> iterator_type;
+		typedef Islice<KeyOrValue, OptionalValue> slice_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Ilayer<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface>{	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Ilayer<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual iterator_type* __clone_iterator() const = 0;
+		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const = 0;
+		
+		virtual slice_type* __clone_slice() const = 0;
+		virtual slice_type* __clone_parent() const = 0;
+	};
+
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Ilayer_iterator : public Ilist_iterator<KeyOrValue, OptionalValue> {
+	public:
+		typedef Ilayer_iterator type;
+		typedef Ilist_iterator super_type;
+		typedef Ilayer<KeyOrValue, OptionalValue> collection_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Islice<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface> {	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Islice<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual collection_type* __clone_collection() const = 0;
+	};
+
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Islice : public Ilist_iterator<bridge<Ilayer<KeyOrValue, OptionalValue>>> {
+	public:
+		typedef Islice type;
+		typedef Ilayer_iterator super_type;
+		typedef typename super_type::collection_type collection_type;
+		typedef Ilayer<KeyOrValue, OptionalValue> layer_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Islice<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface> {	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Islice<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual collection_type* __clone_collection() const = 0;
+		
+		virtual Islice* __clone_slice() const = 0;
+		virtual Islice* __clone_parent() const = 0;
+	};
+
+	template<typename KeyOrValue, typename OptionalValue>
+	class Inode;
+
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Igraph : public Ilayer<KeyOrValue, OptionalValue> {
+	public:
+		typedef Ilayer type;
+		typedef Ilayer super_type;
+		typedef Inode<KeyOrValue, OptionalValue> iterator_type;
+		typedef typename super_type::slice_type slice_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Ilayer<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface>{	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Ilayer<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual iterator_type* __clone_iterator() const = 0;
+		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const = 0;
+	};
+
+	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
+	class Inode : public Ilayer_iterator<KeyOrValue, OptionalValue> {
+	public:
+		typedef Inode type;
+		typedef Ilayer_iterator super_type;
+		typedef Igraph<KeyOrValue, OptionalValue> collection_type;
+	public:
+		template <typename AnyKey, typename AnyValue>
+		struct change {
+			typedef lazy5::Inode<AnyKey, AnyValue> type;
+			typedef typename super_type::change<AnyKey, AnyValue>::downgraded_type downgraded_type;
+		};
+
+		template <typename AnyInterface>
+		struct has_all_methods_of : super_type::has_all_methods_of<AnyInterface> {	
+		};
+
+		template <typename AnyKey, typename AnyValue>
+		struct has_all_methods_of<Inode<AnyKey, AnyValue>> : std::integral_constant<bool, true> {
+		};
+
+	public:
+		virtual type* __clone() const = 0;
+		virtual collection_type* __clone_collection() const = 0;
+		
+		virtual collection_type* __clone_subgraph() const = 0;
+		virtual collection_type* __clone_parent() const = 0;
+	};
+
+
+#endif
 	//////////////////////////////
 	//////////////////////////////
 
@@ -567,6 +751,7 @@ namespace lazy5 {
 
 	public:
 		virtual collection_type* __clone_collection() const { return new concatenator<collection_type>(_left_content.collection(), _right_content.collection()); }
+		virtual void rewind() { _left_content.rewind(); _right_content.rewind(); }	
 		virtual size_t backward(size_t count = 1) { size_t jump = count == 0 ? 0 : _right_content.backward(count); return jump == count ? count : jump + _left_content.backward(count - jump); }
 	};
 	
@@ -676,9 +861,8 @@ namespace lazy5 {
 	//////////////////////////////
 	//////////////////////////////////////////
 	
-
-	
-	template<typename __HiddenInterface, typename __Interface, typename __Inheritance = __Interface>
+#if 0 // let try a new implementation 
+		template<typename __HiddenInterface, typename __Interface, typename __Inheritance = __Interface>
 	class flatten_value : public flatten_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> {
 		friend class Iunknown;
 	public:
@@ -692,7 +876,7 @@ namespace lazy5 {
 		template <typename AnyContent, typename AnyNestedContent>
 		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	};
-	
+		
 	template<typename __HiddenInterface, typename __Interface>
 	class flatten_value<__HiddenInterface, __Interface, Igeneric> : public __Interface {
 		friend class Iunknown;
@@ -701,17 +885,11 @@ namespace lazy5 {
 		typedef typename __Interface::value_type value_type;
 		typedef __Interface super_type;
 	public:
-		bridge<__HiddenInterface> _content;
-	public:
 		flatten_value() {}
 		template <typename AnyContent>
-		flatten_value(AnyContent&& content) : _content(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
 		template <typename AnyContent, typename AnyNestedContent>
-		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : _content(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
-
-	public:
-		virtual __Interface* __clone() const { return new flatten_value<__HiddenInterface, __Interface>(const_cast<flatten_value*>(this)->_content); }
-		virtual bool good() const { return _content.good(); }
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	};
 	
 
@@ -723,11 +901,27 @@ namespace lazy5 {
 		typedef typename __Interface::value_type value_type;
 		typedef typename flatten_value<__HiddenInterface, __Interface, typename Ielement::super_type> super_type;
 	public:
+		template <bool isElement>
+		struct ff {
+			typedef bridge<__HiddenInterface> flatten_type;
+			template <typename AnyContent>
+			static flatten_type init(AnyContent&& content) { return content; }
+		};
+		template <>
+		struct ff<false> {
+			typedef bridge<typename std::decay<__HiddenInterface>::type::iterator_type> flatten_type;
+			template <typename AnyContent>
+			static flatten_type init(AnyContent&& content) { return content.begin(); }
+		};
+		typedef ff<std::is_base_of<lazy5::Ielement<typename std::decay<__HiddenInterface>::type::key_or_value_template, typename std::decay<__HiddenInterface>::type::optional_value_template>, typename std::decay<__HiddenInterface>::type>::value> ff_type;
+	public:
+		typename ff_type::flatten_type _content;
+	public:
 		flatten_value() {}
 		template <typename AnyContent>
-		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		flatten_value(AnyContent&& content) : _content(ff_type::init(std::forward<AnyContent> (content))) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
 		template <typename AnyContent, typename AnyNestedContent>
-		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : _content(ff_type::init(std::forward<AnyContent> (content))) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
 		template < bool Compatible>
 		class xx {
@@ -743,9 +937,11 @@ namespace lazy5 {
 			static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& content) { return content.begin(); }
 		};
 		template <typename AnyHiddenInterface, typename AnyInterface, typename AnyInheritance>
-		static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& bridge) { return xx<std::is_base_of<Ielement<typename AnyInterface::key_or_value_template, typename AnyInterface::optional_value_template>, AnyInterface>::value>::get_nested_element( (bridge)); }
+		static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& bridge) { return xx<std::is_base_of<lazy5::Ielement<typename std::decay<AnyInterface>::type::key_or_value_template, typename std::decay<AnyInterface>::type::optional_value_template>, typename std::decay<AnyInterface>::type>::value>::get_nested_element( (bridge)); }
 
 	public:
+		virtual __Interface* __clone() const { return new flatten_value<__HiddenInterface, __Interface>(const_cast<flatten_value*>(this)->_content); }
+		virtual bool good() const { return _content.good(); }
 		virtual typename std::add_const<value_type>::type value() const { return get_nested_element(_content.value()).value(); }
 		virtual typename std::add_const<key_type>::type key() const { return get_nested_element(_content.value()).key(); }
 	};
@@ -769,17 +965,6 @@ namespace lazy5 {
 					}
 				} while (_content.forward());
 			}
-			// invalid nested iterator
-			return bridge<__Interface>();
-		}
-
-		bridge<__Interface> get_nested_valid_element_backward() { 
-			do {
-				auto iterator = get_nested_element(_content.value()); 
-				if (!iterator.eof()) {
-					return iterator;
-				}
-			} while (_content.backward());
 			// invalid nested iterator
 			return bridge<__Interface>();
 		}
@@ -840,6 +1025,19 @@ namespace lazy5 {
 		typedef typename __Interface::collection_type collection_type;
 		typedef typename flatten_value<__HiddenInterface, __Interface, typename Iiterator::super_type> super_type;
 	public:
+		bridge<__Interface> get_nested_valid_element_backward() { 
+			do {
+				auto iterator = get_nested_element(_content.value()); 
+				if (!iterator.eof()) {
+					return iterator;
+				}
+			} while (_content.backward());
+			// invalid nested iterator
+			return bridge<__Interface>();
+		}
+
+
+	public:
 		flatten_value() {}
 		template <typename AnyContent>
 		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
@@ -847,7 +1045,8 @@ namespace lazy5 {
 		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual collection_type* __clone_collection() const { return new flatten_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection()); }
+		virtual collection_type* __clone_collection() const { return new flatten_value<__HiddenInterface, collection_type>(_content); }
+		virtual void rewind() { _content.rewind(); _nested_iterator = get_nested_valid_element_forward(); }	
 		virtual size_t backward(size_t count = 1) {
 			size_t all_jumps = 0;
 			while (count != 0) {
@@ -912,14 +1111,33 @@ namespace lazy5 {
 		typedef typename __Interface::iterator_type iterator_type;
 		typedef typename flatten_value<__HiddenInterface, __Interface, typename Iquery::super_type> super_type;
 	public:
+		template <typename __StudiedHiddenInterface, bool isElement>
+		struct ff {
+			typedef bridge<typename std::decay<__StudiedHiddenInterface>::type::collection_type> flatten_type;
+			template <typename AnyContent>
+			static flatten_type init(AnyContent&& content) { return content.collection(); }
+		};
+		template <typename __StudiedHiddenInterface>
+		struct ff<__StudiedHiddenInterface, false> {
+			typedef bridge<__StudiedHiddenInterface> flatten_type;
+			template <typename AnyContent>
+			static flatten_type init(AnyContent&& content) { return content; }
+		};
+
+		typedef ff<__HiddenInterface, std::is_base_of<lazy5::Ielement<typename std::decay<__HiddenInterface>::type::key_or_value_template, typename std::decay<__HiddenInterface>::type::optional_value_template>, typename std::decay<__HiddenInterface>::type>::value> ff_type;
+	public:
+		typename ff_type::flatten_type _content;
+	public:
 		flatten_value() {}
 		template <typename AnyContent>
-		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		flatten_value(AnyContent&& content) : _content(ff_type::init(std::forward<AnyContent> (content))) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
 		template <typename AnyContent, typename AnyNestedContent>
-		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : _content(ff_type::init(std::forward<AnyContent> (content))) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual iterator_type* __clone_iterator() const { return new flatten_value<typename __HiddenInterface::iterator_type, typename __Interface::iterator_type>(_content.begin()); }
+		virtual __Interface* __clone() const { return new flatten_value<__HiddenInterface, __Interface>(const_cast<flatten_value*>(this)->_content); }
+		virtual bool good() const { return _content.good(); }
+		virtual iterator_type* __clone_iterator() const { return new flatten_value<__HiddenInterface, iterator_type>(_content); }
 		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const { 
 			auto iterator = __clone_iterator();
 			if (iterator) {
@@ -981,6 +1199,317 @@ namespace lazy5 {
 		virtual void insert(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type&& value) = 0;
 	};
 
+	
+
+#else
+	
+	template<typename __HiddenInterface, typename __Interface, typename __Inheritance = __Interface>
+	class flatten_value : public flatten_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+	};
+		
+	template<typename __HiddenInterface, typename __Interface>
+	class flatten_value<__HiddenInterface, __Interface, Igeneric> : public __Interface {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef __Interface super_type;
+	public:
+		typename bridge<__HiddenInterface> _content;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : _content(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : _content(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+	public:
+		virtual __Interface* __clone() const { return new flatten_value<__HiddenInterface, __Interface>(const_cast<flatten_value*>(this)->_content); }
+		virtual bool good() const { return _content.good(); }
+	};
+	
+
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Ielement<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Ielement<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Ielement::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+	public:
+		template < bool Compatible>
+		class xx {
+		public:
+			template <typename AnyHiddenInterface, typename AnyInterface, typename AnyInheritance>
+			static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& content) { return content; }
+		};
+
+		template < >
+		class xx<false> {
+		public:
+			template <typename AnyHiddenInterface, typename AnyInterface, typename AnyInheritance>
+			static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& content) { return content.begin(); }
+		};
+		template <typename AnyHiddenInterface, typename AnyInterface, typename AnyInheritance>
+		static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& bridge) { return xx<std::is_base_of<lazy5::Ielement<typename std::decay<AnyInterface>::type::key_or_value_template, typename std::decay<AnyInterface>::type::optional_value_template>, typename std::decay<AnyInterface>::type>::value>::get_nested_element( (bridge)); }
+
+	public:
+		virtual typename std::add_const<value_type>::type value() const { return get_nested_element(_content.value()).value(); }
+		virtual typename std::add_const<key_type>::type key() const { return get_nested_element(_content.value()).key(); }
+	};
+	
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Iflow<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Iflow<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Iflow::super_type> super_type;
+	public:
+		bridge<__Interface> _nested_iterator;
+	public:
+		bridge<__Interface> get_nested_valid_element_forward() {
+			if (!_content.eof()) {
+				do {
+					auto iterator = get_nested_element(_content.value()); 
+					if (!iterator.eof()) {
+						return iterator;
+					}
+				} while (_content.forward());
+			}
+			// invalid nested iterator
+			return bridge<__Interface>();
+		}
+
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)), _nested_iterator(get_nested_valid_element_forward()) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content)), _nested_iterator(std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+	public:
+		virtual __Interface* __clone() const { return new flatten_value<__HiddenInterface, __Interface>(const_cast<flatten_value*>(this)->_content, const_cast<flatten_value*>(this)->_nested_iterator); }
+		virtual bool good() const { return _nested_iterator.good(); }
+		virtual typename std::add_const<value_type>::type value() const { return _nested_iterator.value(); }
+		virtual typename std::add_const<key_type>::type key() const { return _nested_iterator.key(); }
+	public:
+		virtual void flush() { _content.flush(); _nested_iterator = bridge<__Interface>(); }
+		virtual bool eof() const { return _content.eof() || _nested_iterator.eof(); }
+		virtual const void* where() const { return _nested_iterator.where(); }
+		virtual size_t forward(size_t count = 1) {
+			size_t all_jumps = 0;
+			while (count != 0 && !_nested_iterator.eof()) {
+				size_t jump = _nested_iterator.forward(count);
+				all_jumps += jump;
+				if (jump == count) {
+					if (_nested_iterator.eof()) {
+						_content.forward();
+						_nested_iterator = get_nested_valid_element_forward();
+					}
+					break;
+				} else {
+					count -= jump;
+					_content.forward();
+					_nested_iterator = get_nested_valid_element_forward();
+				}
+			}
+			return all_jumps;
+		}
+		virtual bool seek(typename std::decay<key_type>::type const& key) { 
+			while (!_nested_iterator.seek(key)) {
+				if (!_content.forward()) {
+					_nested_iterator = bridge<__Interface>();
+					return false;
+				} else {
+					_nested_iterator = get_nested_valid_element_forward();
+				}
+			}
+			return true;
+		}
+	};
+	
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Iiterator<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Iiterator<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename __Interface::collection_type collection_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Iiterator::super_type> super_type;
+	public:
+		bridge<__Interface> get_nested_valid_element_backward() { 
+			do {
+				auto iterator = get_nested_element(_content.value()); 
+				if (!iterator.eof()) {
+					return iterator;
+				}
+			} while (_content.backward());
+			// invalid nested iterator
+			return bridge<__Interface>();
+		}
+
+
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual collection_type* __clone_collection() const { return new flatten_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection()); }
+		virtual void rewind() { _content.rewind(); _nested_iterator = get_nested_valid_element_forward(); }	
+		virtual size_t backward(size_t count = 1) {
+			size_t all_jumps = 0;
+			while (count != 0) {
+				size_t jump = _nested_iterator.backward(count);
+				all_jumps += jump;
+				if (jump == count) {
+					break;
+				}
+					
+				if (!_content.backward()) {
+					break;
+				}
+				_nested_iterator = get_nested_valid_element_backward();
+			}
+			return all_jumps;
+		}
+	};
+	
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Imap_iterator<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Imap_iterator<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Imap_iterator::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual void set(typename std::decay<value_type>::type const&  value) { _nested_iterator.set(value); }
+		virtual void set(typename std::decay<value_type>::type&& value) { _nested_iterator.set(value); }
+		virtual void erase() { _nested_iterator.erase(); }
+	};
+	
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Ilist_iterator<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Ilist_iterator<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Ilist_iterator::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+	};
+	
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Iquery<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Iquery<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename __Interface::iterator_type iterator_type;
+		typedef typename __Interface::layer_type layer_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Iquery::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual iterator_type* __clone_iterator() const { return new flatten_value<typename __HiddenInterface::iterator_type, iterator_type>(_content.begin()); }
+		//virtual layer_type* __clone_layer() const { return _content->index_as_key().__clone_iterator(); }
+		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const { 
+			auto iterator = __clone_iterator();
+			if (iterator) {
+				iterator->seek(key);
+			}
+			return iterator;
+		}
+		virtual typename std::add_const<value_type>::type value(typename std::decay<key_type>::type const& key) const { 
+			auto iterator = std::shared_ptr<iterator_type> (__find_iterator(key));
+			return iterator->value();
+		}
+	};
+
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Imap<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Imap<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual void set(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type const&  value) = 0;
+		virtual void set(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type&& value) = 0;
+		virtual void set(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type const& value) = 0;
+		virtual void set(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type&& value) = 0;
+		virtual void erase(typename std::decay<key_type>::type const& key) { 
+			auto iterator = std::shared_ptr<iterator_type> (__find_iterator(key));			
+			if (iterator && !iterator->eof()) {
+				iterator->erase();
+			}
+		}
+	};
+
+	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
+	class flatten_value<__HiddenInterface, __Interface, Ilist<KeyOrValue, OptionalValue>> : public flatten_value<__HiddenInterface, __Interface, typename Ilist<KeyOrValue, OptionalValue>::super_type> {
+		friend class Iunknown;
+	public:
+		typedef typename __Interface::key_type key_type;
+		typedef typename __Interface::value_type value_type;
+		typedef typename flatten_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
+	public:
+		flatten_value() {}
+		template <typename AnyContent>
+		flatten_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		flatten_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual void insert(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type const&  value) = 0;
+		virtual void insert(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type&& value) = 0;
+		virtual void insert(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type const& value) = 0;
+		virtual void insert(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type&& value) = 0;
+	};
+#endif
 	
 	//////////////////////////////
 	//////////////////////////////////////////
@@ -1052,7 +1581,7 @@ namespace lazy5 {
 			static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& content) { return content.begin(); }
 		};
 		template <typename AnyHiddenInterface, typename AnyInterface, typename AnyInheritance>
-		static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& bridge) { return xx<std::is_base_of<Ielement<typename AnyInterface::key_or_value_template, typename AnyInterface::optional_value_template>, AnyInterface>::value>::get_nested_element( (bridge)); }
+		static bridge<__Interface> get_nested_element(const bridge<AnyHiddenInterface, AnyInterface, AnyInheritance>& bridge) { return xx<std::is_base_of<lazy5::Ielement<typename std::decay<AnyInterface>::type::key_or_value_template, typename std::decay<AnyInterface>::type::optional_value_template>, typename std::decay<AnyInterface>::type>::value>::get_nested_element( (bridge)); }
 
 	public:
 		virtual typename std::add_const<value_type>::type value() const { return get_nested_element(_content.value()).value(); }
@@ -1070,34 +1599,24 @@ namespace lazy5 {
 		bridge<__Interface> _nested_iterator;
 
 	public:
-		bridge<__Interface> get_nested_valid_element_forward() {
+		bool get_nested_valid_element_forward() {
 			if (!_content.eof()) {
 				do {
-					auto iterator = get_nested_element(_content.value()); 
-					if (iterator.forward(_rank) == _rank) {
-						return iterator;
+					_nested_iterator = get_nested_element(_content.value()); 
+					if (_nested_iterator.forward(_rank) == _rank) {
+						return true;
 					}
 				} while (_content.forward());
 			}
 			// invalid nested iterator
-			return bridge<__Interface>();
-		}
-
-		bridge<__Interface> get_nested_valid_element_backward() { 
-			do {
-				auto iterator = get_nested_element(_content.value()); 
-				if (iterator.forward(_rank) == _rank) {
-					return iterator;
-				}
-			} while (_content.backward());
-			// invalid nested iterator
-			return bridge<__Interface>();
+			_nested_iterator = bridge<__Interface>();
+			return false;
 		}
 
 	public:
 		isolate_value() {}
 		template <typename AnyContent, typename AnyRank>
-		isolate_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)), _nested_iterator(get_nested_valid_element_forward()) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		isolate_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) { get_nested_valid_element_forward(); std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
 		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
 		isolate_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)), _nested_iterator(std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
@@ -1110,34 +1629,28 @@ namespace lazy5 {
 		virtual bool eof() const { return _content.eof(); }
 		virtual const void* where() const { return _nested_iterator.where(); }
 		virtual size_t forward(size_t count = 1) {
-			size_t all_jumps = 0;
-			while (count != 0 && !_nested_iterator.eof()) {
-				size_t jump = _nested_iterator.forward(count);
-				all_jumps += jump;
-				if (jump == count) {
-					if (_nested_iterator.eof()) {
-						_content.forward();
-						_nested_iterator = get_nested_valid_element_forward();
-					}
+			size_t jumps = 0;
+			while (count != jumps) {
+				_content.forward();
+				if (!get_nested_valid_element_forward()) {
 					break;
-				} else {
-					count -= jump;
-					_content.forward();
-					_nested_iterator = get_nested_valid_element_forward();
 				}
+				++jumps;
 			}
-			return all_jumps;
+			return jumps;
 		}
 		virtual bool seek(typename std::decay<key_type>::type const& key) { 
-			while (!_nested_iterator.seek(key)) {
-				if (!_content.forward()) {
-					_nested_iterator = bridge<__Interface>();
-					return false;
-				} else {
-					_nested_iterator = get_nested_valid_element_forward();
+			if (!_nested_iterator.eof()) {
+				while (_nested_iterator.key() != key) {
+					_content.forward();
+					if (!get_nested_valid_element_forward()) {
+						return false;
+					}
 				}
+				return true;
+			} else {
+				return false;
 			}
-			return true;
 		}
 	};
 	
@@ -1150,6 +1663,24 @@ namespace lazy5 {
 		typedef typename __Interface::collection_type collection_type;
 		typedef typename isolate_value<__HiddenInterface, __Interface, typename Iiterator::super_type> super_type;
 	public:
+		bool get_nested_valid_element_backward() { 
+			if (!_content.eof()) {
+				if (!_content.backward()) {
+					return false;
+				}
+			}
+			do {
+				_nested_iterator = get_nested_element(_content.value()); 
+				if (_nested_iterator.forward(_rank) == _rank) {
+					return true;
+				}
+			} while (_content.backward());
+			// invalid nested iterator
+			_nested_iterator = bridge<__Interface>();
+			return false;
+		}
+
+	public:
 		isolate_value() {}
 		template <typename AnyContent, typename AnyRank>
 		isolate_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
@@ -1158,21 +1689,17 @@ namespace lazy5 {
 
 	public:
 		virtual collection_type* __clone_collection() const { return new isolate_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection(), _rank); }
+		virtual void rewind() { _content.rewind(); get_nested_valid_element_forward(); }	
 		virtual size_t backward(size_t count = 1) {
-			size_t all_jumps = 0;
-			while (count != 0) {
-				size_t jump = _nested_iterator.backward(count);
-				all_jumps += jump;
-				if (jump == count) {
+			size_t jumps = 0;
+			while (count != jumps) {
+				_content.backward();
+				if (!get_nested_valid_element_backward()) {
 					break;
 				}
-					
-				if (!_content.backward()) {
-					break;
-				}
-				_nested_iterator = get_nested_valid_element_backward();
+				++jumps;
 			}
-			return all_jumps;
+			return jumps;
 		}
 	};
 	
@@ -1295,25 +1822,24 @@ namespace lazy5 {
 	//////////////////////////////
 	//////////////////////////////////////////
 	
-#if 0 // TODO
 	
 	template<typename __HiddenInterface, typename __Interface, typename __Inheritance = __Interface>
-	class transpose_value : public transpose_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> {
+	class clockwise_value : public clockwise_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename __Inheritance::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	};
 	
 	template<typename __HiddenInterface, typename __Interface>
-	class transpose_value<__HiddenInterface, __Interface, Igeneric> : public __Interface {
+	class clockwise_value<__HiddenInterface, __Interface, Igeneric> : public __Interface {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
@@ -1322,82 +1848,110 @@ namespace lazy5 {
 	public:
 		bridge<__HiddenInterface> _content;
 	public:
-		transpose_value() : _rank(0) {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : _content(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : _content(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : _content(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : _content(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual __Interface* __clone() const { return new transpose_value<__HiddenInterface, __Interface>(const_cast<transpose_value*>(this)->_content); }
+		virtual __Interface* __clone() const { return new clockwise_value<__HiddenInterface, __Interface>(const_cast<clockwise_value*>(this)->_content); }
 		virtual bool good() const { return _content.good(); }
 	};
 	
 
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Ielement<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Ielement<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Ielement<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Ielement<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Ielement::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Ielement::super_type> super_type;
 	public:
-		size_t _rank;
+		template <bool Compatible>
+		struct ff2 {
+			typedef isolate_value<__Interface, typename std::decay<value_type>::type::type> isolate_value_type;
+		};
+		template <>
+		struct ff2<false> {
+			typedef isolate_value<typename __Interface, typename std::decay<value_type>::type::iterator_type> isolate_value_type;
+		};
+		typedef typename ff2<std::is_base_of<lazy5::Ielement<typename std::decay<value_type>::type::key_or_value_template, typename std::decay<value_type>::type::optional_value_template>, typename std::decay<value_type>::type>::value> ff2_type;
+		template <bool Compatible>
+		struct ff {
+			typedef typename ff2_type::isolate_value_type isolate_value_type;
+			template <typename AnyContent>
+			static typename isolate_value_type* isolate(AnyContent&& content) { return new isolate_value_type(std::forward<AnyContent> (content)); }
+		};
+		template <>
+		struct ff<false> {
+			typedef typename ff2_type::isolate_value_type isolate_value_type;
+			template <typename AnyContent>
+			static typename isolate_value_type* isolate(AnyContent&& content) { return new isolate_value_type(content.begin()); }
+		};
+		typedef typename ff<std::is_base_of<lazy5::Ielement<typename std::decay<__HiddenInterface>::type::key_or_value_template, typename std::decay<__HiddenInterface>::type::optional_value_template>, typename std::decay<__HiddenInterface>::type>::value> ff_type;
+		typedef typename ff_type::isolate_value_type isolate_value_type;
 	public:
-		transpose_value() : _rank(0) {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content)), _rank(std::forward<AnyRank> (rank)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)), _rank(std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		std::shared_ptr<isolate_value_type> _nested_iterator;
 	public:
-		virtual __Interface* __clone() const { return new transpose_value<__HiddenInterface, __Interface>(const_cast<transpose_value*>(this)->_content, _rank); }
-		virtual typename std::add_const<value_type>::type value() const { return get_nested_element(_content.value()).value(); }
-		virtual typename std::add_const<key_type>::type key() const { return get_nested_element(_content.value()).key(); }
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)), _nested_iterator(ff_type::isolate(std::forward<AnyContent> (content))) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content)), _nested_iterator(std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+
+	public:
+		virtual __Interface* __clone() const { return new clockwise_value<__HiddenInterface, __Interface>(const_cast<clockwise_value*>(this)->_content, _nested_iterator); }
+		virtual typename std::add_const<value_type>::type value() const { return _nested_iterator->_content; }
+		virtual typename std::add_const<key_type>::type key() const { return _nested_iterator->_content.key(); }
 	};
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Iflow<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Iflow<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Iflow<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Iflow<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Iflow::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Iflow::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), _rank(std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) { std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl; }
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
-		virtual void flush() { _content.flush(); fixme; }
-		virtual bool eof() const { return _content.eof(); }
-		virtual const void* where() const { return _content.where(); }
-		virtual size_t forward(size_t count = 1) {
-			size_t all_jumps = 0;
-			while (count != 0 && !_nested_iterator.eof()) {
-				size_t jump = _nested_iterator.forward(count);
-				all_jumps += jump;
-				if (jump == count) {
-					if (_nested_iterator.eof()) {
-						_content.forward();
-						_nested_iterator = get_nested_valid_element_forward();
-					}
-					break;
-				} else {
-					count -= jump;
-					_content.forward();
-					_nested_iterator = get_nested_valid_element_forward();
-				}
+		virtual void flush() { 
+			if (_nested_iterator && !_nested_iterator->eof()) {
+				do {
+					size_t left = _nested_iterator->_nested_iterator.forward(-1);
+					_nested_iterator->_rank += left + 1;
+				} while (_nested_iterator->get_nested_valid_element_forward());
 			}
-			return all_jumps;
 		}
-		virtual bool seek(typename std::decay<key_type>::type const& key) { 
-			while (!_nested_iterator.seek(key)) {
-				if (!_content.forward()) {
-					_nested_iterator = bridge<__Interface>();
+		virtual bool eof() const { return !_nested_iterator || _nested_iterator->eof(); }
+		virtual const void* where() const { return _nested_iterator ? _nested_iterator->where() : NULL; }
+		virtual size_t forward(size_t count = 1) {
+			if (!_nested_iterator || _nested_iterator->eof()) {
+				return 0;
+			}
+			size_t jumps = 0;
+			while (count != jumps) {
+				++_nested_iterator->_rank;
+				if (!_nested_iterator->get_nested_valid_element_forward()) {
+					break;
+				}
+				++jumps;
+			}
+			return jumps;
+		}
+		virtual bool seek(typename std::decay<key_type>::type const& key) {
+			if (!_nested_iterator || _nested_iterator->eof()) {
+				return false;
+			}
+			while (_nested_iterator->_content.key() != key) {
+				++_nested_iterator->_rank;
+				if (!_nested_iterator->get_nested_valid_element_forward()) {
 					return false;
-				} else {
-					_nested_iterator = get_nested_valid_element_forward();
 				}
 			}
 			return true;
@@ -1405,94 +1959,91 @@ namespace lazy5 {
 	};
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Iiterator<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Iiterator<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Iiterator<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Iiterator<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
 		typedef typename __Interface::collection_type collection_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Iiterator::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Iiterator::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual collection_type* __clone_collection() const { return new transpose_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection(), _rank); }
-		virtual size_t backward(size_t count = 1) {
-			size_t all_jumps = 0;
-			while (count != 0) {
-				size_t jump = _nested_iterator.backward(count);
-				all_jumps += jump;
-				if (jump == count) {
-					break;
-				}
-					
-				if (!_content.backward()) {
-					break;
-				}
-				_nested_iterator = get_nested_valid_element_backward();
+		virtual collection_type* __clone_collection() const { return new clockwise_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection()); }
+		virtual void rewind() { if (_nested_iterator) { _nested_iterator->_rank = 0; _nested_iterator->rewind(); } }	
+		virtual size_t backward(size_t count = 1) { 
+			if (!_nested_iterator) { 
+				return 0;
 			}
-			return all_jumps;
+			size_t jumps = std::min(count, _nested_iterator->_rank);
+			if (jumps == 0) {
+				return 0;
+			}
+			_nested_iterator->_rank -= jumps;
+			_nested_iterator->get_nested_valid_element_backward();
+			return jumps;
 		}
 	};
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Imap_iterator<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Imap_iterator<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Imap_iterator<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Imap_iterator<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Imap_iterator::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Imap_iterator::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual void set(typename std::decay<value_type>::type const&  value) { _nested_iterator.set(value); }
-		virtual void set(typename std::decay<value_type>::type&& value) { _nested_iterator.set(value); }
-		virtual void erase() { _nested_iterator.erase(); }
+		virtual void set(typename std::decay<value_type>::type const&  value) = 0;
+		virtual void set(typename std::decay<value_type>::type&& value) = 0;
+		virtual void erase() = 0;
 	};
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Ilist_iterator<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Ilist_iterator<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Ilist_iterator<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Ilist_iterator<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Ilist_iterator::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Ilist_iterator::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
 	};
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Iquery<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Iquery<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Iquery<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Iquery<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
 		typedef typename __Interface::iterator_type iterator_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Iquery::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Iquery::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
-		virtual iterator_type* __clone_iterator() const { return new transpose_value<typename __HiddenInterface::iterator_type, typename __Interface::iterator_type>(_content.begin(), _rank); }
+		virtual iterator_type* __clone_iterator() const { return new clockwise_value<typename __HiddenInterface::iterator_type, typename __Interface::iterator_type>(_content.begin()); }
 		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const { 
 			auto iterator = __clone_iterator();
 			if (iterator) {
@@ -1507,18 +2058,18 @@ namespace lazy5 {
 	};
 
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Imap<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Imap<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Imap<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Imap<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
 		virtual void set(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type const&  value) = 0;
@@ -1534,18 +2085,18 @@ namespace lazy5 {
 	};
 
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class transpose_value<__HiddenInterface, __Interface, Ilist<KeyOrValue, OptionalValue>> : public transpose_value<__HiddenInterface, __Interface, typename Ilist<KeyOrValue, OptionalValue>::super_type> {
+	class clockwise_value<__HiddenInterface, __Interface, Ilist<KeyOrValue, OptionalValue>> : public clockwise_value<__HiddenInterface, __Interface, typename Ilist<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename transpose_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
+		typedef typename clockwise_value<__HiddenInterface, __Interface, typename Imap::super_type> super_type;
 	public:
-		transpose_value() {}
-		template <typename AnyContent, typename AnyRank>
-		transpose_value(AnyContent&& content, AnyRank&& rank) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent, typename AnyRank, typename AnyNestedContent>
-		transpose_value(AnyContent&& content, AnyRank&& rank, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyRank> (rank), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		clockwise_value() {}
+		template <typename AnyContent>
+		clockwise_value(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
+		template <typename AnyContent, typename AnyNestedContent>
+		clockwise_value(AnyContent&& content, AnyNestedContent&& nested_content) : super_type(std::forward<AnyContent> (content), std::forward<AnyNestedContent> (nested_content)) {std::cout<<__LINE__<<"  "<< typeid(nested_content).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
 		virtual void insert(typename std::decay<key_type>::type const& key, typename std::decay<value_type>::type const&  value) = 0;
@@ -1553,7 +2104,7 @@ namespace lazy5 {
 		virtual void insert(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type const& value) = 0;
 		virtual void insert(typename std::decay<key_type>::type&& key, typename std::decay<value_type>::type&& value) = 0;
 	};
-#endif
+
 
 	//////////////////////////////
 	//////////////////////////////////////////
@@ -1655,6 +2206,7 @@ namespace lazy5 {
 
 	public:
 		virtual collection_type* __clone_collection() const { return new apply_value<Function, ReverseFunction, typename __HiddenInterface::collection_type, collection_type>(_content.collection(), _function); }
+		virtual void rewind() { _content.rewind(); }	
 		virtual size_t backward(size_t count = 1) { return _content.backward(count); }
 	};
 	
@@ -1827,9 +2379,9 @@ namespace lazy5 {
 	public:
 		filter_value() {}
 		template <typename AnyContent, typename AnyFunction>
-		filter_value(AnyContent&& content, AnyFunction&& function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function)) {std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
+		filter_value(AnyContent&& content, AnyFunction&& function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function)) { std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
 		template <typename AnyContent, typename AnyFunction, typename AnyReverseFunction>
-		filter_value(AnyContent&& content, AnyFunction&& function, AnyReverseFunction&& reverse_function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function), std::forward<AnyReverseFunction> (reverse_function)) {std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
+		filter_value(AnyContent&& content, AnyFunction&& function, AnyReverseFunction&& reverse_function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function), std::forward<AnyReverseFunction> (reverse_function)) { std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
 
 	public:
 		virtual typename std::add_const<value_type>::type value() const { return _content.value(); }
@@ -1844,11 +2396,23 @@ namespace lazy5 {
 		typedef typename __Interface::value_type value_type;
 		typedef typename filter_value<Function, ReverseFunction, __HiddenInterface, __Interface, typename Iflow::super_type> super_type;
 	public:
+		bool get_valid_element_forward() {
+			if (_content.eof()) {
+				return false;
+			}
+			while (!_function(key(), value())) {
+				if (!_content.forward(1)) {
+					return false;
+				}
+			}
+			return true;
+		}
+	public:
 		filter_value() {}
 		template <typename AnyContent, typename AnyFunction>
-		filter_value(AnyContent&& content, AnyFunction&& function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function)) {std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
+		filter_value(AnyContent&& content, AnyFunction&& function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function)) { get_valid_element_forward(); std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
 		template <typename AnyContent, typename AnyFunction, typename AnyReverseFunction>
-		filter_value(AnyContent&& content, AnyFunction&& function, AnyReverseFunction&& reverse_function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function), std::forward<AnyReverseFunction> (reverse_function)) {std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
+		filter_value(AnyContent&& content, AnyFunction&& function, AnyReverseFunction&& reverse_function) : super_type(std::forward<AnyContent> (content), std::forward<AnyFunction> (function), std::forward<AnyReverseFunction> (reverse_function)) { get_valid_element_forward();  std::cout<<__LINE__<<"  "<< typeid(function).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
 		virtual void flush() { _content.flush(); }
 		virtual bool eof() const { return _content.eof(); }
@@ -1897,6 +2461,7 @@ namespace lazy5 {
 	public:
 		virtual __Interface* __clone() const { return new filter_value<Function, ReverseFunction, __HiddenInterface, __Interface>(const_cast<filter_value*>(this)->_content, const_cast<filter_value*>(this)->_function, const_cast<filter_value*>(this)->_reverse_function); }
 		virtual collection_type* __clone_collection() const { return new filter_value<Function, ReverseFunction, typename __HiddenInterface::collection_type, collection_type>(_content.collection(), _function, _reverse_function); }
+		virtual void rewind() { _content.rewind(); get_valid_element_forward(); }
 		virtual size_t backward(size_t count = 1) { 
 			size_t jump = count;
 			while (count != 0) {
@@ -1966,7 +2531,7 @@ namespace lazy5 {
 
 	public:
 		virtual iterator_type* __clone_iterator() const {
-			return new filter_value<Function, ReverseFunction, typename __HiddenInterface::iterator_type, typename __Interface::iterator_type>(_content.begin() FIXME: shall start to a valid iterator !, _function); 
+			return new filter_value<Function, ReverseFunction, typename __HiddenInterface::iterator_type, typename __Interface::iterator_type>(_content.begin(), _function); 
 		}
 		virtual iterator_type* __find_iterator(typename std::decay<key_type>::type const& key) const { 
 			auto it = _content.find(key);
@@ -2133,6 +2698,7 @@ namespace lazy5 {
 
 	public:
 		virtual collection_type* __clone_collection() const { return new swap_value<typename __HiddenInterface::collection_type, collection_type>(_content.collection()); }
+		virtual void rewind() { _content.rewind(); }	
 		virtual size_t backward(size_t count = 1) { return _content.backward(count); }
 	};
 	
@@ -2299,12 +2865,12 @@ namespace lazy5 {
 	};
 	
 	template<typename Content, typename __Interface, typename KeyOrValue>
-	class prime_content<Content, __Interface, Icontent<KeyOrValue>> : public prime_content<Content, __Interface, typename Icontent<KeyOrValue>::super_type> {
+	class prime_content<Content, __Interface, Ireference<KeyOrValue>> : public prime_content<Content, __Interface, typename Ireference<KeyOrValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename prime_content<Content, __Interface, typename Icontent::super_type> super_type;
+		typedef typename prime_content<Content, __Interface, typename Ireference::super_type> super_type;
 	public:
 		prime_content() {}
 		template <typename AnyContent>
@@ -2356,6 +2922,7 @@ namespace lazy5 {
 		prime_content(AnyContent&& content, bool eof) : super_type(std::forward<AnyContent> (content), eof) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
 		virtual collection_type* __clone_collection() const { return new prime_content<Content, collection_type> (_content); }
+		virtual void rewind() { _eof = false; }
 		virtual size_t backward(size_t count = 1) { if (_eof && count) { _eof = false; return 1; } else { return 0; } }
 	};
 	
@@ -2492,12 +3059,12 @@ namespace lazy5 {
 	};
 
 	template<typename Content, typename __Interface, typename KeyOrValue>
-	class prime_std_vector<Content, __Interface, Icontent<KeyOrValue>> : public prime_std_vector<Content, __Interface, typename Icontent<KeyOrValue>::super_type> {
+	class prime_std_vector<Content, __Interface, Ireference<KeyOrValue>> : public prime_std_vector<Content, __Interface, typename Ireference<KeyOrValue>::super_type> {
 		friend class Iunknown;
 	public:
 		typedef typename __Interface::key_type key_type;
 		typedef typename __Interface::value_type value_type;
-		typedef typename prime_std_vector<Content, __Interface, typename Icontent::super_type> super_type;
+		typedef typename prime_std_vector<Content, __Interface, typename Ireference::super_type> super_type;
 	public:
 		typedef typename std::conditional<std::is_const<Content>::value, typename std::decay<Content>::type::const_iterator, typename std::decay<Content>::type::iterator>::type iterator_type;
 
@@ -2557,6 +3124,7 @@ namespace lazy5 {
 		prime_std_vector(AnyContent&& content, AnyIterator&& iterator) : super_type(std::forward<AnyContent> (content), std::forward<AnyIterator> (iterator)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
 	public:
 		virtual collection_type* __clone_collection() const { return new prime_std_vector<Content, collection_type> (_content); }
+		virtual void rewind() { _iterator = static_cast<const iterator_type&> (_content.begin()); }	
 		virtual size_t backward(size_t count = 1) { 
 			size_t jump = std::min(count, static_cast<size_t> (std::distance(static_cast<const iterator_type&> (_content.begin()), _iterator)));
 			_iterator -= jump; 
@@ -2803,6 +3371,8 @@ public:
 		bridge<__Interface> clone() const { return __clone(); }
 		template <typename AnyValue>
 		operator AnyValue () const { return prime<AnyValue, __Interface>::convert(*this); }
+		const __Interface* operator->() const { return this; }
+		__Interface* operator->() { return this; }
 	};
 
 
@@ -2997,24 +3567,6 @@ public:
 	
 	
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
-	class bridge<__HiddenInterface, __Interface, Icontent<KeyOrValue, OptionalValue>> : public bridge<__HiddenInterface, __Interface, typename Icontent<KeyOrValue, OptionalValue>::super_type> {
-		friend class Iunknown;
-	public:
-		typedef typename __Interface::key_type key_type;
-		typedef typename __Interface::value_type value_type;
-		typedef typename bridge<__HiddenInterface, __Interface, typename Icontent::super_type> super_type;
-	public:
-		bridge() {}
-		template <typename AnyContent>
-		bridge(AnyContent&& content) : super_type(std::forward<AnyContent> (content)) {std::cout<<__LINE__<<"  "<< typeid(content).name()<<"  "<< "AnyContent content"<<std::endl;}
-		template <typename AnyContent0, typename AnyContent1>
-		bridge(AnyContent0&& content0, AnyContent1&& content1) : super_type(std::forward<AnyContent0>(content0), std::forward<AnyContent1>(content1)) { /*std::cout<<"+++"<<std::endl;*/	}
-	public:
-		virtual void set(typename std::decay<value_type>::type const&  value) { _content->set(value); }
-		virtual void set(typename std::decay<value_type>::type&& value) { _content->set(value); }
-	};
-	
-	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
 	class bridge<__HiddenInterface, __Interface, Ireference<KeyOrValue, OptionalValue>> : public bridge<__HiddenInterface, __Interface, typename Ireference<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
 	public:
@@ -3028,11 +3580,12 @@ public:
 		template <typename AnyContent0, typename AnyContent1>
 		bridge(AnyContent0&& content0, AnyContent1&& content1) : super_type(std::forward<AnyContent0>(content0), std::forward<AnyContent1>(content1)) { /*std::cout<<"+++"<<std::endl;*/	}
 	public:
+		virtual void set(typename std::decay<value_type>::type const&  value) { _content->set(value); }
+		virtual void set(typename std::decay<value_type>::type&& value) { _content->set(value); }
 		template <typename AnyValue>
 		bridge& operator=(AnyValue&& value) { this->set(std::forward<AnyValue>(value)); return *this; }
 	};
 	
-
 	template<typename __HiddenInterface, typename __Interface, typename KeyOrValue, typename OptionalValue>
 	class bridge<__HiddenInterface, __Interface, Iflow<KeyOrValue, OptionalValue>> : public bridge<__HiddenInterface, __Interface, typename Iflow<KeyOrValue, OptionalValue>::super_type> {
 		friend class Iunknown;
@@ -3047,8 +3600,8 @@ public:
 		template <typename AnyContent0, typename AnyContent1>
 		bridge(AnyContent0&& content0, AnyContent1&& content1) : super_type(std::forward<AnyContent0>(content0), std::forward<AnyContent1>(content1)) { /*std::cout<<"+++"<<std::endl;*/	}
 	public:
-		value_type flatten() const { return new flatten_value<__Interface, typename value_type::type /* we use type to take the interface! */>(*this); }
-		value_type isolate(size_t rank) const { return new isolate_value<__Interface, typename value_type::type /* we use type to take the interface! */>(*this, rank); }
+		value_type flatten() const { return new flatten_value<__Interface, typename std::decay<value_type>::type::type /* we use type to take the interface! */>(*this); }
+		value_type isolate(size_t rank) const { return new isolate_value<__Interface, typename std::decay<value_type>::type::type /* we use type to take the interface! */>(*this, rank); }
 
 
 	public:
@@ -3079,19 +3632,18 @@ public:
 	protected:
 		template <bool Compatible>
 		struct ff {
-			static typename value_type flatten(const bridge& b) { return new flatten_value<__Interface, typename value_type::type>(b); }
-			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<__Interface, typename value_type::type>(b, rank); }
-			//static typename bridge<typename __Interface::change<key_type, typename value_type::value_type>::type> isolate(const bridge& b, size_t rank) { return new isolate_value<typename __Interface::change<key_type, typename value_type::value_type>::type, typename value_type::type>(b, rank); }
+			static typename value_type flatten(const bridge& b) { return new flatten_value<__Interface, typename std::decay<value_type>::type::type>(b); }
+			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<__Interface, typename std::decay<value_type>::type::type>(b, rank); }
 		};
 		template <>
 		struct ff<false> {
-			static typename value_type flatten(const bridge& b) { return new flatten_value<typename __Interface::collection_type, typename value_type::type>(b.collection()); }
-			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<typename __Interface::collection_type, typename value_type::type>(b.collection(), rank); }
+			static typename value_type flatten(const bridge& b) { return new flatten_value<typename __Interface::collection_type, typename std::decay<value_type>::type::type>(b.collection()); }
+			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<typename __Interface::collection_type, typename std::decay<value_type>::type::type>(b.collection(), rank); }
 		};
 	public:
-		value_type flatten() const { return ff<std::is_base_of<lazy5::Ielement<typename value_type::key_type, typename value_type::value_type>, value_type>::value>::flatten(*this); }
+		value_type flatten() const { return ff<std::is_base_of<lazy5::Ielement<typename std::decay<value_type>::type::key_or_value_template, typename std::decay<value_type>::type::optional_value_template>, typename std::decay<value_type>::type>::value>::flatten(*this); }
 
-		value_type isolate(size_t rank) const { return ff<std::is_base_of<lazy5::Ielement<typename value_type::key_type, typename value_type::value_type>, value_type>::value>::isolate(*this, rank); }
+		value_type isolate(size_t rank) const { return ff<std::is_base_of<lazy5::Ielement<typename std::decay<value_type>::type::key_or_value_template, typename std::decay<value_type>::type::optional_value_template>, typename std::decay<value_type>::type>::value>::isolate(*this, rank); }
 
 	public:
 		bridge() {}
@@ -3104,6 +3656,7 @@ public:
 	protected:
 		virtual collection_type* __clone_collection() const { return new bridge<typename __HiddenInterface::collection_type, collection_type> (_content ? _content->__clone_collection() : NULL); }
 	public:
+		virtual void rewind() { if (_content) { _content->rewind(); } }
 		virtual size_t backward(size_t count = 1) { return _content ? _content->backward(count) : 0; }
 	};
 
@@ -3166,21 +3719,23 @@ public:
 	protected:
 		template <bool Compatible>
 		struct ff {
-			static typename value_type flatten(const bridge& b) { return new flatten_value<typename __Interface::iterator_type, typename value_type::type>(b.begin()); }
-			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<typename __Interface::iterator_type, typename value_type::type>(b.begin(), rank); }
+			static typename value_type flatten(const bridge& b) { return new flatten_value<typename __Interface::iterator_type, typename std::decay<value_type>::type::type>(b.begin()); }
+			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<typename __Interface::iterator_type, typename std::decay<value_type>::type::type>(b.begin(), rank); }
 		};
 		template <>
 		struct ff<false> {
-			static typename value_type flatten(const bridge& b) { return new flatten_value<__Interface, typename value_type::type>(b); }
-			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<__Interface, typename value_type::type>(b, rank); }
+			static typename value_type flatten(const bridge& b) { return new flatten_value<__Interface, typename std::decay<value_type>::type::type>(b); }
+			static typename value_type isolate(const bridge& b, size_t rank) { return new isolate_value<__Interface, typename std::decay<value_type>::type::type>(b, rank); }
 		};
 	public:
 		virtual typename std::add_const<value_type>::type value(typename std::decay<key_type>::type const& key) const { return _content->value(key); }
 		
 	public:
-		value_type flatten() const { return ff<std::is_base_of<Ielement<typename value_type::key_type, typename value_type::value_type>, value_type>::value>::flatten(*this); }
+		value_type flatten() const { return ff<std::is_base_of<lazy5::Ielement<typename std::decay<value_type>::type::key_or_value_template, typename std::decay<value_type>::type::optional_value_template>, typename std::decay<value_type>::type>::value>::flatten(*this); }
 
-		value_type isolate(size_t rank) const {	return ff<std::is_base_of<Ielement<typename value_type::key_type, typename value_type::value_type>, value_type>::value>::isolate(*this, rank); }
+		value_type isolate(size_t rank) const {	return ff<std::is_base_of<lazy5::Ielement<typename std::decay<value_type>::type::key_or_value_template, typename std::decay<value_type>::type::optional_value_template>, typename std::decay<value_type>::type>::value>::isolate(*this, rank); }
+
+		bridge clockwise() const {	return new clockwise_value<__HiddenInterface, __Interface>(*this); }
 
 	protected:
 		virtual iterator_type* __clone_iterator() const { return new bridge<typename __HiddenInterface::iterator_type, typename __Interface::iterator_type> (_content ? _content->__clone_iterator() : NULL); }
@@ -3288,20 +3843,6 @@ public:
 		element(AnyContent&& content) : bridge (std::forward<AnyContent>(content)) { 	}
 		template <typename AnyContent0, typename AnyContent1>
 		element(AnyContent0&& content0, AnyContent1&& content1) : bridge(std::forward<AnyContent0>(content0), std::forward<AnyContent1>(content1)) {	}
-	};
-
-	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>
-	class content : public bridge<Icontent<KeyOrValue, OptionalValue>> {
-		friend class Iunknown;
-	public:
-		typedef typename Icontent::key_type key_type;
-		typedef typename Icontent::value_type value_type;
-	public:
-		content() { }
-		template <typename AnyContent>
-		content(AnyContent&& content) : bridge (std::forward<AnyContent>(content)) { 	}
-		template <typename AnyContent0, typename AnyContent1>
-		content(AnyContent0&& content0, AnyContent1&& content1) : bridge(std::forward<AnyContent0>(content0), std::forward<AnyContent1>(content1)) {	}
 	};
 
 	template<typename KeyOrValue = std::_Nil, typename OptionalValue = std::_Nil>

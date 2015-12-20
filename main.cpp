@@ -1,77 +1,155 @@
 /*
 Ce qui manque:
-  2. champs lexical SQL : select, when, à la place de change et filter?
-  4. constructeur sur différent container: boost, stl (map), collection (cf. idées de 2012)
-  4.bis fonction externe permettant de construire un objet à partir d'un C-array et d'une taille : en fait c'est mieux avec deux pointeurs begin et end!
-  5. complèter les traits (cf. idées de 2013) : hériter de std::iterator!
-  6. opérations mineures: first(), last(), +=, << ...
-  6. union et intersection d'une Query et Collection
- 11. Counter et comparaison avec un entier
- 12. Pair méthodes à complèter
- 13.bis exension de layer/scale/iterator avec constructeurs spéciaux : Tree/Forest, Node/Gaph, Matrix/line/column/site(case,cross)
- 1. vérifier la cohérence du reverse partour et même sur le std::vector !!!!
- 2. généraliser le inheritance au flow et query et faire un test plus conséquent. appliquer le inheritance au chainedStorage.
- 14. fixer le ChainStorage avec 2 modifiers simultanés.
- 15. régler ce problème de getConstFirst()
+
+ ------------------------------------------------------------------------
+
+A. code refactoring
+ 0. utiliser le using pour faire de la spécialisation partielle
+ 1. vérifier la cohérence du reverse partout et même sur le std::vector !!!!
+ 2. champs lexical SQL : select, when, à la place de change et filter?
+ 5. complèter les traits (cf. idées de 2013) : hériter de std::iterator!
+En 2013, idée de traits dans itérateur et predicate de boost
+ http://www.boost.org/doc/libs/1_44_0/libs/iterator/doc/filter_iterator.html
+ http://www.boost.org/doc/libs/1_44_0/libs/iterator/doc/new-iter-concepts.html
+ http://msdn.microsoft.com/fr-fr/library/ms132397(v=VS.80).aspx
+
  16. changer en hash_map le unique
- 17. remplacer le modifier par std::function
  18. remplacer Pair par tuple
- 19. insérer une macro ou un élément intermédiaire pour hériter d'une collection
- 0. supprimmer le content si UnorderedList et OrderedList / UnorderedMap et OrderedMap (cf. le 14/01/2015)
- 0.bis constructeur move sur container.
- 0.ter ambiguité sur constructeur si pas de type sur le container! (cf. le 11/01/2015)
- 0.4 faire un classe Prime pour construire l'objet! (cf. 12/01/2015)
  0.5 utiliser les variadic templates ? ---> Non compatible!
- 30. créer les Graphs, TREE et DAG et Matrix. Comment ajouter les méthodes d'insertion?  (cf. le 13/01/2015)
- 30.bis Peut-on le généraliser pour N axes? OUI (cf. exemples de matrice du 10/01/2015)
- 32. comment utiliser les graphes dans le dualStorage ?
- 34. ajouter dans Collection::change_element1(std::function<T1 (T1)>) Collection::change_element1(std::function<T1 (T1, T2)>) Collection::change_elements(std::function<tuple(T1, T2) (T1, T2)>)
- 35. faire content(bridge&)
- 39.a. Irange : IUnorderedlist<IUnorderedlst>
- 39.b. IMatrix : Ilist<Ilist>  pas d'insertion/erase juste le setter.
- 40. liste d'adjacence : range ->constructeur à deux paramètres
- 41.a. tester le constructeur avec deux paramètres begin + end
- 41.b. tester le constructeur avec deux paramètres void* + size, n'est-ce pas la même chose que begin et end ? begin->begin+size
- 44. dans lazy5 : 
- 44.a implémenter le reverse;
- 44.b le filter reversible (permet le unique); 
- 44.c le functor reversible (permet le swap) 
- 44.d la comparaison de contenu (optimisation avec la taille)
- 44.e la comparaison de taille parcours partiel ou demande de la taille?
- 44.f le dynamic_cast  (avec le functor reversible)? le static_cast ?
- 44.g la concaténation
- 44.f le flatten
- 44.h le bool exist()
- 44.i begin() et end() et collection()
- 45. trouver comment appliquer une collection à un container i.e changer le container d'une collection : setNestedBridge(IList<>*) je crois que ce n'est pas possible à cause du apply!
  46. trouver une astuce pour ne pas dupliquer le code entre prime<vector> , prime<vector&> et prime<const vector&>
  50. tenter un héritage unknown -> element (attribute0) -> flow (++) -> iterator (colmlection) -> query -> flow
+ 55. remplacer value par operator[] const
+ 65. que doit on retourner lors d'un erase() ?
+ 67. résoudre le problème de nommage de apply2()
+ 68. pb de typage des interfaces lors d'un apply() simple: la list doit être dégradée en query
+ 71. pb sur surcharge des value(). il faut toutes les réécrire à chaque fois. pourquoi pas faire lvalue() et rvalue(). idem pour rkey() et lkey()?
+ 75. faire un specialization sur bridge<template_generic> pour factoriser certaines méthodes statiques! tel que le apply et le swap
+ 79. remplacer quand c'est possible std::is_base_of par has_all_methods_of
+ 80. le flatten doit porter lui-même l'analyse de type
+ 81. remplacer tous les retours de pointeur par des bridges! Pb sur la multiple définition des méthodes!
+ 82. qu'est ce qui pourrait être remplacer par un modify+filter ou pas:
+    OUI : filter, modify, swap, unique, concat, dynamic_cast, recursive_modify, recursive_filter, stopper
+	NON : reverse, sort(?), flatten, isolate, clockwise, rflatten
+	bool continue(accumulate, key_orig, val_orig, key, val, skip_forw, skip_back) -> cela ne marche pas!
+ 83. est-ce que l'on peut diminuer le nombre d'objets: generic, generic_template, element, reference, flow, query, iterator, collection, set(?)
+     map (+iter), list (+iter), matrix (+iter), range (+iter), tree, dag, graph
+	 range::???, matrix::transpose,  list::insert, map::set, set::set, tree::?, dag::?, graph::?
+ 84. map_iterator::operator* -> bridge::reference (c'est lui-même) et map::oprator[] -> bridge::reference (c'est un itérateur avec moins d'interface)
+
+ ------------------------------------------------------------------------
+B. diversité des containers et constructeurs
+  4. constructeur sur différent container: boost, stl (map), collection (cf. idées de 2012)
+  4.bis fonction externe permettant de construire un objet à partir d'un C-array et d'une taille : en fait c'est mieux avec deux pointeurs begin et end!
+ 40. liste d'adjacence : range ->constructeur à deux paramètres
+ 58. pouvoir choisir un prime<vector> avec ou sans constant et reference! Est-ce que le cast explicit est bon dans le forward du constructeur (std::vector) ou (std::vector&) ou (const std::vector&)?
+ 60. faut-il coder les opérator= () avec move ? --> perfect forward!!!!!!
+ 35. ajouter la méthode ::content(bridge&)
+ 41.a. tester le constructeur avec deux paramètres begin + end
+ 41.b. tester le constructeur avec deux paramètres void* + size, n'est-ce pas la même chose que begin et end ? begin->begin+size
+ 45. trouver comment appliquer une collection à un container i.e changer le container d'une collection : setNestedBridge(IList<>*) je crois que ce n'est pas possible à cause du apply!
+ 57. pouvoir redéfinir le new et shared_ptr allocator !
+En 2012, idées pour container universel :
+ - adjacent list (2 dimensions)
+ - xtrist
+ - queue
+ - stack
+ - set/map
+ - multiset/multimap
+ - hash_set et hash_map
+ - simple slist
+ - c-array
+ - list/vector
+ - string
+ - (x)tree
+ - boost matrice (2 dimensions)
+ - hash table
+
+le 12/01/2015, Prime
+  Prime<int,int, vector> : IUnorderedMap
+  Prime<int, void, vector> : IUnorderedList
+
+le 11/01/2015, sur le constructeur
+ Collection(collection& c) { _shared = c; }
+ template<X,Y> Collection(ICollection<X,Y>& c) { _shared= new static_cast<Collection>(c); }
+ Collection(Icollection<X,Y>* c) {_shared = c;}
+ template<container> Collection(container&& c) { _shared = new Prime(c); }
+ template<container> Collection(const container& c) { _shared = new Prime(c); } // différence entre ref et copie ?
+
+le 20/06/2014, La transformation vector<vector<int>> en collection<collection<int>>, c'est:
+ std::map<I,std::vector<T>> _key_to_value_map;
+ Flow<I, const std::vector<T>&, const std::map<I,std::vector<T>>&> collection(_key_to_value_map);
+ Flow<I, Collection<const T&, void, const std::vector<T>&>, const std::map<I,std::vector<T>>& > new_collection = collection;
+
+
+ ------------------------------------------------------------------------
+
+C. nouvelles fonctionalités
+  6. union = concat+unique
+  7. intersection 
+  8. opérations mineures: first(), last(), +=, << ...
+ 34. ajouter dans Collection::change_element1(std::function<T1 (T1)>) Collection::change_element1(std::function<T1 (T1, T2)>) Collection::change_elements(std::function<tuple(T1, T2) (T1, T2)>)
+ 44.a implémenter le search sur value permet le swap
+ 44.b le filter reversible (permet le unique); 
+ 44.c le functor reversible (permet le swap) 
+ 44.f le dynamic_cast  (avec le functor reversible)? le static_cast ?
+ 44.h le bool exist()
+ 66. ne pas oublier le resize et le clear pour une orderedList
+ 69. lors d'un apply2() il manque l'opérateur par move? si la fonction reverse prend en argument un &&
+ 73. faire une opération collection<element<X,Y>>::clockwise() -> element<collection<X,Y>>
+ 74. le flatten et la concaténation doivent supporter les list et map lorsque la clef est un numérique autre solution faire un downgraded_type. A voir ...
+ 80. collection<Y*, Z*>::index_as_key() ->  Collection<Z*>  
+ 82. un apply sur les feuilles d'une collection récursive.
+ 83. un flatten récursif
+ 84. un apply qui fait aussi filter!
+ 85. un stopper qui arrète d'itérer sur un predicat
+ 85. un jumper qui commence à itérer à partir d'un predicat : n'est-ce pas le filter amélioré (il se désactive une fois à true) ? OUI
+
+
+ ------------------------------------------------------------------------
+
+D. référence
+ 56. l'operateur[] non-const retourne un content qui a l'opérateur =() définit!
  02.a ATTENTION: règler le problème de (iterator + 5)->attribute0()  : en fait c'est une interface qui est renvoyée!!
  02.b comment faire une méthode move sans copy : clone et forward et apply !!!
  52. comment faire un value() qui soit operator[] qui retourne un non const ref ? plutôt retourner un element avec redefinition de loperator = ? est que le element doit avoir une key?
- 53. tester les bounds!
- 55. TODO: remplacer value par operator[] const
- 56. l'operateur[] non-const retourne un content qui a l'opérateur =() définit!
- 57. pouvoir redéfinir le new et shared_ptr allocator !
- 58. pouvoir choisir un prime<vector> avec ou sans constant et reference! Est-ce que le cast explicit est bon dans le forward du constructeur (std::vector) ou (std::vector&) ou (const std::vector&)?
- 59. problème d'interface lorsque l'on wrappe des set : index -> value
- 60. faut-il coder les opérator= () avec move ? --> perfect forward!!!!!!
- 65. que doit on retourner lors d'un erase() ?
- 65. Implémenter une pair?
- 66. ne pas oublier le resize et le clear pour une orderedList
- 67. résoudre le problème de nommage de apply2()
- 68. pb de typage des interfaces lors d'un apply() simple: la list doit être dégradée en query
- 69. lors d'un apply2() il manque l'opérateur par move? si la fonction reverse prend en argument un &&
  70. se poser la question: quand je fais une assignation, est-ce que je veux la nouvelle valeur? idem du erase sur l'ancienne valeur? Pourquoi ne pas travailer sur un iterator alors?
- 71. pb sur surcharge des value(). il faut toutes les réécrire à chaque fois. pourquoi pas faire lvalue() et rvalue(). idem pour rkey() et lkey()?
- 72. faire la fonction filter
- 73. faire une opération collection<element<X,Y>>::transpose() -> element<collection<X,Y>>
- 74. le flatten et la concaténation doivent supporter les list et map lorsque la clef est un numérique autre solution faire un downgraded_type. A voir ...
- 75. faire un specialization sur bridge<template_generic> pour factoriser certaines méthodes statiques! tel que le apply et le swap
+
+ 
+ ------------------------------------------------------------------------
+
+E.comparaison
+ 0. créer une fonction predicate qui retourne un booléen et qui est préemptif, cela peut aussi être une addition sur tous les élèments! -> c'est un algo mais pas une classe!
+ 11. Counter et comparaison avec un entier
+ 44.e la comparaison de taille parcours partiel ou demande de la taille?
+ 44.d la comparaison de contenu (optimisation avec la taille)
+
+
+ ------------------------------------------------------------------------
+
+F.représentation des storages
+ 14. fixer le ChainStorage avec 2 modifiers simultanés.
+ 32. comment utiliser les graphes dans le dualStorage ? 
+ 33. ou alors Collection<Collection<>> ::begin_layer() ?
+ 34. gestion des events (gestion des vues séparées)
+ 35. multi threads (gestion de vue séparée)
+ 36. merge
+ 37. occurrence
+ 38. cf. chap référence
+
+ ------------------------------------------------------------------------
+
+G. nouveaux objets
+ 13.bis exension de layer/scale/iterator avec constructeurs spéciaux : Tree/Forest, Node/Gaph, Matrix/line/column/site(case,cross)
+ 30. créer les Graphs, TREE et DAG et Matrix. Comment ajouter les méthodes d'insertion?  (cf. le 13/01/2015)
+ 30.bis Peut-on le généraliser pour N axes? OUI (cf. exemples de matrice du 10/01/2015)
+ 39.a. Irange : IUnorderedlist<IUnorderedlst>
+ 39.b. IMatrix : Ilist<Ilist>  pas d'insertion/erase juste le setter.
+ 59. problème d'interface lorsque l'on wrappe des set : index -> value
+ 65. Implémenter une pair?
  76. matrix<x,y,size_t rank> : list<matrix<x,y,rank-1>  matrix<x,y, 0> : element<x,y>
  77. matrix_iterator::up/down
  78. matrix : range ---> le range::erase peut éliminer la colonne et la ligne de la matrice.
- 79. remplacer quand c'est possible std::is_base_of par has_all_methods_of
+ 81. ne pas faire de layer mais plutot un begin_layer -> cas du flatten et de la concaténation ...
 
 le 14/01/2015, OrderedList/UnorderedList (list et map)
 OrderedList<X>::insert(X&)
@@ -93,18 +171,6 @@ Matrix::push_back(Row/Column)
 Matrix3D::push_back(Matrix)
 Case{0,0}::up()->Case{1,0}
 Case{1,1}::down()->Case{0,1}
-
-le 12/01/2015, Prime
-  Prime<int,int, vector> : IUnorderedMap
-  Prime<int, void, vector> : IUnorderedList
-
-
-le 11/01/2015, sur le constructeur
- Collection(collection& c) { _shared = c; }
- template<X,Y> Collection(ICollection<X,Y>& c) { _shared= new static_cast<Collection>(c); }
- Collection(Icollection<X,Y>* c) {_shared = c;}
- template<container> Collection(container&& c) { _shared = new Prime(c); }
- template<container> Collection(const container& c) { _shared = new Prime(c); } // différence entre ref et copie ?
 
 le 10/01/2015, layer et Scale (ou Scheme ou encore Layer et LayerIterator) 
 1 scale représente :
@@ -139,36 +205,14 @@ Exemple sur une matrice 2D:
  Scale{case0.0, case1.0}::backward()->Scale{Row0, Row1}
  Scale{case0.0, Row1}::backward()->Scale{Row0, matrice2D}
 
-   
+  ------------------------------------------------------------------------
+  
 
  
- le 20/06/2014, La transformation vector<vector<int>> en collection<collection<int>>, c'est:
- std::map<I,std::vector<T>> _key_to_value_map;
- Flow<I, const std::vector<T>&, const std::map<I,std::vector<T>>&> collection(_key_to_value_map);
- Flow<I, Collection<const T&, void, const std::vector<T>&>, const std::map<I,std::vector<T>>& > new_collection = collection;
-
+ 
 
  
- En 2013, idée de traits dans itérateur et predicate de boost
- http://www.boost.org/doc/libs/1_44_0/libs/iterator/doc/filter_iterator.html
- http://www.boost.org/doc/libs/1_44_0/libs/iterator/doc/new-iter-concepts.html
- http://msdn.microsoft.com/fr-fr/library/ms132397(v=VS.80).aspx
  
- En 2012, idées pour container universel :
- - adjacent list (2 dimensions)
- - xtrist
- - queue
- - stack
- - set/map
- - multiset/multimap
- - hash_set et hash_map
- - simple slist
- - c-array
- - list/vector
- - string
- - (x)tree
- - boost matrice (2 dimensions)
- - hash table
  
    
 
@@ -1984,17 +2028,6 @@ int main (int argc, char * const argv[]) {
 
 
 		{
-			std::cout<<"content"<<std::endl;
-			lazy5::content<size_t> x;
-			lazy5::content<size_t> y((long long) 5);
-			y = (long long) 10;
-			long long c=5;
-			y = c;
-			long long g = y;
-			y = lazy5::content<size_t>((long long) 5);
-		}
-
-		{
 			std::cout<<"reference"<<std::endl;
 			lazy5::reference<size_t> x;
 			lazy5::reference<size_t> y((long long) 5);
@@ -2008,7 +2041,7 @@ int main (int argc, char * const argv[]) {
 		{
 			std::cout<<"reference"<<std::endl;
 			lazy5::list_iterator<size_t> x;
-			lazy5::content<size_t> y =*x;
+			lazy5::element<size_t> y =*x;
 			*x=5;
 		}
 
@@ -2092,7 +2125,7 @@ int main (int argc, char * const argv[]) {
 			lazy5::iterator<double, Z*> y2 = y.isolate(0);
 			lazy5::iterator<Y*, lazy5::collection<double, Z*>> z;
 			lazy5::collection<double, Z*> z2 = z.isolate(0);
-#if 0 // disabled to debug
+#if 1 // disabled to debug
 			lazy5::collection<Y*, lazy5::iterator<double, Z*>> a;
 			lazy5::iterator<double, Z*> a2 = a.isolate(0);
 			lazy5::collection<Y*, lazy5::flow<double, Z*>> b;
@@ -2104,24 +2137,33 @@ int main (int argc, char * const argv[]) {
 			lazy5::iterator<Y*, lazy5::element<double, Z*>> e;
 			lazy5::element<double, Z*> e2 = e.isolate(0);
 			//TODO : the flow and element ????
-			lazy5::flow<Y*, lazy5::collection<double, Z*>> f;
+			lazy5::iterator<Y*, lazy5::collection<double, Z*>> f;
 			lazy5::collection<double, Z*> f2 = f.isolate(0);
 			lazy5::element<Y*, lazy5::collection<double, Z*>> g;
 			lazy5::collection<double, Z*> g2 = g.isolate(0);
+			lazy5::flow<Y*, lazy5::flow<double, Z*>> h;
+			lazy5::flow<double, Z*> h2 = h.isolate(0);
 #endif
 		}
+
+
 
 		{
-			//TODO
-			std::cout<<"transpose"<<std::endl;
+#if 0  //TODO
+			std::cout<<"clockwise"<<std::endl;
 			lazy5::collection<Y*, lazy5::collection<double, Z*>> x;
-			//lazy5::collection<Y*, lazy5::collection<double, Z*>> x2 = x.transpose();
-			lazy5::iterator<Y*, lazy5::iterator<double, Z*>> y;
-			//lazy5::iterator<Y*, lazy5::iterator<double, Z*>> y2 = y.transpose();
+			lazy5::collection<Y*, lazy5::collection<double, Z*>> x2 = x.clockwise();
+			//lazy5::iterator<Y*, lazy5::iterator<double, Z*>> y;
+			//lazy5::iterator<Y*, lazy5::iterator<double, Z*>> y2 = y.clockwise();
+#endif
 		}
 #endif
 
-
+		{
+			// test de conversions : Y* est mandatory !!!!
+			lazy5::bridge<lazy5::Iiterator<Y*,lazy5::collection<double,Z *>>> c;
+			lazy5::bridge<lazy5::Iflow<Y*,lazy5::bridge<lazy5::Iquery<double,Z *>>> > d=c;
+		}
 	}
 	std::cout << "end of test"<<std::endl;
 	
